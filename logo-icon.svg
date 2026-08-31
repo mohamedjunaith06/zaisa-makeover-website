@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4af6d" />
+      <stop offset="50%" stop-color="#b88944" />
+      <stop offset="100%" stop-color="#9a6e30" />
+    </linearGradient>
+  </defs>
+  <g transform="translate(30, 8) scale(0.9)" fill="url(#goldIconGrad)">
+    <!-- Bun on top left of head -->
+    <path d="M 32 35 C 22 24, 10 26, 4 37 C -2 48, 1 60, 11 67 C 22 74, 33 65, 34 54 C 34 46, 33 40, 32 35 Z" />
+    <path d="M 12 36 C 18 28, 28 31, 33 39 C 35 44, 34 51, 29 56 C 23 60, 14 56, 11 49 C 9 44, 10 39, 12 36 Z" fill="#ffffff" opacity="0.35" />
+
+    <!-- Sweeping hair lines & head contour -->
+    <path d="M 33 38 C 45 22, 68 25, 78 37 C 86 47, 88 56, 80 61 C 72 65, 60 52, 48 46 C 39 41, 33 39, 33 38 Z" />
+    <path d="M 22 55 C 33 48, 51 48, 64 59 C 74 68, 75 78, 66 80 C 55 82, 43 72, 30 68 C 23 66, 21 59, 22 55 Z" />
+    <path d="M 26 69 C 37 64, 55 66, 62 79 C 66 87, 62 96, 53 100 C 44 104, 35 94, 28 85 C 24 79, 24 74, 26 69 Z" />
+
+    <!-- Profile of Face & hair lock -->
+    <path d="M 78 37 
+             C 83 44, 88 53, 88 60 
+             C 85 62, 83 63, 81 64 
+             C 85 68, 89 73, 94 77 
+             C 92 80, 86 82, 83 83 
+             C 86 86, 88 88, 85 91 
+             C 82 93, 77 93, 75 94 
+             C 77 98, 77 101, 73 103 
+             C 67 107, 60 107, 56 110 
+             C 49 116, 45 125, 43 138 
+             C 41 148, 43 159, 48 171 
+             C 42 157, 36 141, 34 125 
+             C 32 111, 37 100, 44 91 
+             C 51 82, 60 77, 65 68 
+             C 67 63, 67 56, 62 51 
+             C 57 46, 47 41, 41 41 
+             C 53 34, 67 32, 78 37 Z" />
+  </g>
+</svg>

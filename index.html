@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zaisa Makeover — Enhancing Your Beauty, Creating Your Confidence</title>
+<meta name="description" content="Zaisa Makeover — bridal saree pre-pletting, hairstyle and makeup artistry. Open to travel. Book your look today.">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon.png') }}?v=2">
+<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}?v=2">
+<link rel="apple-touch-icon" href="{{ url_for('static', filename='apple-touch-icon.png') }}?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --wine: #4a1330;
+    --wine-deep: #34041f;
+    --gold: #c9a15a;
+    --gold-soft: #e6cd9b;
+    --cream: #fbf3ea;
+    --cream-2: #f5e9dc;
+    --blush: #e9c7c2;
+    --ink: #2c1420;
+    --ink-soft: #644c59;
+    --line: rgba(74,19,48,0.14);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background: var(--cream);
+    color: var(--ink);
+    font-family:'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  h1,h2,h3,.serif{ font-family:'Cormorant Garamond', serif; }
+
+  a{ color:inherit; text-decoration:none; }
+
+  img,svg{ display:block; max-width:100%; }
+
+  .wrap{
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .eyebrow{
+    font-family:'Manrope',sans-serif;
+    font-size: 12px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position: fixed;
+    top:0; left:0; right:0;
+    z-index: 100;
+    background: rgba(251,243,234,0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    transition: box-shadow .3s ease;
+  }
+  header.scrolled{ box-shadow: 0 6px 24px rgba(52,4,31,0.08); }
+
+  nav{
+    max-width:1160px;
+    margin:0 auto;
+    padding: 16px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  .brandmark{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .brandmark svg{ width:34px; height:34px; flex-shrink:0; }
+  .logo-mark{ height:52px; width:auto; flex-shrink:0; mix-blend-mode: multiply; }
+  .brandmark .name{
+    font-family:'Cormorant Garamond', serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    font-weight:600;
+    color: var(--wine);
+    line-height:1;
+  }
+  .brandmark .name span{ display:block; font-size:9px; letter-spacing:4px; font-family:'Manrope',sans-serif; font-weight:700; color: var(--gold); margin-top:3px; }
+
+  .nav-links{
+    display:flex;
+    gap: 36px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--wine);
+  }
+  .nav-links a{ position:relative; padding: 4px 0; }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:-2px; width:0; height:1.5px; background: var(--gold);
+    transition: width .25s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+
+  .nav-right{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+  }
+  .nav-cta{
+    background: var(--wine);
+    color: var(--cream);
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    box-shadow: 0 6px 18px rgba(74,19,48,0.25);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  .nav-cta:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(74,19,48,0.32); background: var(--wine-deep); }
+
+  .menu-btn{ display:none; }
+  .mobile-panel{ display:none; }
+
+  @media (max-width: 860px){
+    nav{ padding: 12px 20px; }
+    .nav-links{ display:none; }
+    .nav-right{ gap: 10px; }
+    .nav-cta{
+      display: inline-flex;
+      padding: 8px 16px;
+      font-size: 12px;
+    }
+    .logo-mark{ height: 42px; }
+    .menu-btn{
+      display:flex; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;
+    }
+    .menu-btn span{ width:22px; height:2px; background: var(--wine); border-radius:2px; }
+    .mobile-panel{
+      flex-direction:column;
+      background: var(--cream);
+      border-top: 1px solid var(--line);
+      padding: 18px 32px 26px;
+    }
+    .mobile-panel.open{ display:flex; }
+    .mobile-panel a{
+      padding: 12px 0;
+      font-size: 16px;
+      font-weight:600;
+      color: var(--wine);
+      border-bottom: 1px solid var(--line);
+    }
+    .mobile-panel .nav-cta{ display:none; }
+  }
+
+  @media (max-width: 480px){
+    nav{ padding: 10px 14px; }
+    .logo-mark{ height: 36px; }
+    .nav-right{ gap: 8px; }
+    .nav-cta{
+      padding: 7px 12px;
+      font-size: 11px;
+    }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding: 168px 0 120px;
+    background:
+      radial-gradient(ellipse 60% 50% at 85% 8%, rgba(201,161,90,0.16), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 5% 95%, rgba(74,19,48,0.08), transparent 60%),
+      var(--cream);
+    overflow:hidden;
+  }
+
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 60px;
+    align-items:center;
+  }
+
+  .hero-eyebrow{
+    display:flex; align-items:center; gap:12px;
+    margin-bottom: 22px;
+  }
+  .hero-eyebrow .dash{ width:34px; height:1px; background: var(--gold); }
+
+  .hero h1{
+    font-size: clamp(42px, 5.4vw, 68px);
+    line-height: 1.05;
+    font-weight: 600;
+    color: var(--wine);
+    letter-spacing: 0.2px;
+  }
+  .hero h1 em{
+    font-style: italic;
+    color: var(--gold);
+    font-weight:500;
+  }
+
+  .hero p.lede{
+    margin-top: 22px;
+    font-size: 17px;
+    line-height:1.7;
+    color: var(--ink-soft);
+    max-width: 460px;
+  }
+
+  .hero-actions{
+    margin-top: 36px;
+    display:flex;
+    gap: 16px;
+    flex-wrap:wrap;
+  }
+
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:10px;
+    background: var(--wine);
+    color: var(--cream);
+    padding: 15px 30px;
+    border-radius: 999px;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:0.3px;
+    box-shadow: 0 10px 26px rgba(74,19,48,0.28);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-primary:hover{ transform: translateY(-3px); box-shadow: 0 14px 30px rgba(74,19,48,0.35); }
+
+  .btn-secondary{
+    display:inline-flex; align-items:center; gap:10px;
+    border: 1px solid var(--wine);
+    color: var(--wine);
+    padding: 15px 28px;
+    border-radius: 999px;
+    font-weight:700;
+    font-size:14px;
+    transition: background .2s ease, color .2s ease;
+  }
+  .btn-secondary:hover{ background: var(--wine); color: var(--cream); }
+
+  .hero-badges{
+    margin-top: 48px;
+    display:flex;
+    gap: 34px;
+    flex-wrap:wrap;
+  }
+  .hero-badges div{ display:flex; flex-direction:column; }
+  .hero-badges .num{ font-family:'Cormorant Garamond',serif; font-size:30px; color:var(--wine); font-weight:600; }
+  .hero-badges .lbl{ font-size:11.5px; letter-spacing:1.2px; text-transform:uppercase; color:var(--ink-soft); font-weight:700; margin-top:2px; }
+
+  /* signature medallion illustration */
+  .medallion-wrap{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .medallion-ring{
+    position:absolute;
+    inset:0;
+    animation: spin 60s linear infinite;
+  }
+  @keyframes spin{ to{ transform: rotate(360deg); } }
+
+  .medallion-card{
+    position:relative;
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 3/4;
+    border-radius: 18px 18px 100px 100px;
+    background: linear-gradient(165deg, var(--wine) 0%, var(--wine-deep) 100%);
+    box-shadow: 0 30px 60px rgba(52,4,31,0.35);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 30px;
+  }
+  .medallion-plate{
+    background: radial-gradient(circle at 50% 42%, #fdf8f1 0%, #f3e6d5 100%);
+    border-radius: 50%;
+    width: 78%;
+    aspect-ratio: 1/1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(201,161,90,0.4);
+    padding: 8%;
+    overflow: hidden;
+  }
+  .medallion-logo-img{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+    mix-blend-mode: multiply;
+    image-rendering: -webkit-optimize-contrast;
+  }
+  .medallion-card::before{
+    content:'';
+    position:absolute;
+    inset: 14px;
+    border: 1px solid rgba(230,205,155,0.45);
+    border-radius: 14px 14px 90px 90px;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{ padding: 110px 0; position:relative; }
+  .section-head{
+    text-align:center;
+    max-width: 620px;
+    margin: 0 auto 64px;
+  }
+  .section-head .eyebrow{ display:block; margin-bottom:14px; }
+  .section-head h2{
+    font-size: clamp(32px, 4vw, 46px);
+    color: var(--wine);
+    font-weight: 600;
+    line-height:1.15;
+  }
+  .section-head p{
+    margin-top:16px;
+    color: var(--ink-soft);
+    font-size:16px;
+    line-height:1.7;
+  }
+
+  .divider{
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    margin: 8px auto 0;
+  }
+  .divider .line{ width:44px; height:1px; background: var(--line); }
+  .divider svg{ width:16px; height:16px; opacity:0.85; }
+
+  /* ---------- SERVICES ---------- */
+  .services{ background: var(--cream-2); }
+  .service-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .service-card{
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    box-shadow: 0 10px 28px rgba(52,4,31,0.06);
+  }
+  .service-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 22px 44px rgba(74,19,48,0.14);
+    border-color: rgba(201,161,90,0.5);
+  }
+  .service-img-wrap{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+  .service-img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform .5s ease;
+  }
+  .service-card:hover .service-img{
+    transform: scale(1.06);
+  }
+  .service-content{
+    padding: 28px 24px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+  }
+  .service-card h3{
+    font-size: 24px;
+    color: var(--wine);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .service-card p{
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    line-height: 1.65;
+    flex-grow: 1;
+  }
+  .avail-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-top: 20px;
+    font-size: 11px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color: #3d7a4d;
+    background: rgba(61,122,77,0.1);
+    padding: 6px 14px;
+    border-radius:999px;
+  }
+  .avail-tag .dot{ width:6px; height:6px; border-radius:50%; background:#3d7a4d; }
+
+  /* ---------- LOOKS ---------- */
+  .looks-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .look-card{
+    border-radius: 20px;
+    overflow:hidden;
+    position:relative;
+    aspect-ratio: 3/4;
+    box-shadow: 0 12px 34px rgba(52,4,31,0.14);
+    border: 1px solid rgba(201,161,90,0.3);
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    background: var(--wine-deep);
+  }
+  .look-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 22px 48px rgba(52,4,31,0.28);
+    border-color: var(--gold);
+  }
+  .look-img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition: transform .5s ease;
+  }
+  .look-card:hover .look-img{
+    transform: scale(1.06);
+  }
+  .look-label{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding: 38px 20px 20px;
+    background: linear-gradient(0deg, rgba(30,3,18,0.92) 0%, rgba(30,3,18,0.6) 65%, rgba(30,3,18,0) 100%);
+    color: #fff;
+    z-index: 2;
+  }
+  .look-label .name{ font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; letter-spacing:0.5px; }
+  .look-label .tag{ font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color: var(--gold-soft); margin-top:4px; font-weight:700; }
+
+  /* ---------- ABOUT STRIP ---------- */
+  .about{
+    background: var(--wine);
+    color: var(--cream);
+    position:relative;
+    overflow:hidden;
+  }
+  .about::before{
+    content:'';
+    position:absolute; top:-120px; right:-120px;
+    width:360px; height:360px;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(201,161,90,0.18), transparent 70%);
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items:center;
+  }
+  .about-eyebrow{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:14px;
+  }
+  .about-eyebrow .dash{
+    width: 2.5px;
+    height: 14px;
+    background: var(--gold-soft);
+    display: inline-block;
+    flex-shrink: 0;
+    border-radius: 1px;
+  }
+  .about h2{
+    font-size: clamp(30px, 3.6vw, 42px);
+    font-weight:600;
+    line-height:1.2;
+  }
+  .about h2 em{ color: var(--gold-soft); font-style:italic; }
+  .about p{ margin-top:20px; color: rgba(251,243,234,0.78); line-height:1.75; font-size:16px; }
+
+  .about-list{ margin-top:28px; display:flex; flex-direction:column; gap:16px; }
+  .about-list li{ list-style:none; display:flex; align-items:flex-start; gap:12px; font-size:15px; color: rgba(251,243,234,0.9); }
+  .about-list svg{ width:18px; height:18px; flex-shrink:0; margin-top:2px; }
+
+  .about-visual{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .about-emblem-card{
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, rgba(201,161,90,0.28) 0%, rgba(201,161,90,0.06) 70%, transparent 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+  }
+  .about-emblem-plate{
+    background: radial-gradient(circle at 50% 45%, #fdf8f1 0%, #f3e6d5 100%);
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12%;
+    box-shadow: 0 14px 34px rgba(0,0,0,0.28), inset 0 0 0 2px rgba(201,161,90,0.5);
+    overflow: hidden;
+  }
+  .about-logo-img{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+    mix-blend-mode: multiply;
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{ background: var(--cream-2); }
+  .contact-card{
+    background: var(--cream);
+    border-radius: 26px;
+    padding: 64px 56px;
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 50px;
+    box-shadow: 0 24px 60px rgba(52,4,31,0.1);
+    border: 1px solid var(--line);
+  }
+  .contact h2{ font-size: clamp(28px,3.4vw,38px); color: var(--wine); font-weight:600; line-height:1.2; }
+  .contact p.copy{ margin-top:14px; color: var(--ink-soft); font-size:15.5px; line-height:1.7; max-width:420px; }
+
+  .contact-rows{ margin-top:32px; display:flex; flex-direction:column; gap:20px; }
+  .contact-row{ display:flex; align-items:center; gap:16px; }
+  .contact-row .icon{
+    width:48px; height:48px; border-radius:50%;
+    background: linear-gradient(160deg, var(--blush), var(--gold-soft));
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .contact-row .icon svg{ width:20px; height:20px; }
+  .contact-row .label{ font-size:11px; letter-spacing:1px; text-transform:uppercase; color: var(--ink-soft); font-weight:700; }
+  .contact-row .value{ font-family:'Cormorant Garamond',serif; font-size:22px; color:var(--wine); font-weight:600; }
+  .contact-row a.value:hover{ color: var(--gold); }
+
+  .travel-badge{
+    margin-top: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--wine), #63173d);
+    color: var(--cream);
+    padding: 14px 26px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(201, 161, 90, 0.4);
+    box-shadow: 0 8px 24px rgba(74, 19, 48, 0.22);
+    cursor: pointer;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+    user-select: none;
+    font-family: inherit;
+    text-align: left;
+  }
+  .travel-badge:hover{
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 14px 32px rgba(74, 19, 48, 0.32);
+    border-color: var(--gold);
+    background: linear-gradient(135deg, #5a1438, var(--wine-deep));
+  }
+  .travel-badge svg{
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--gold-soft);
+    transition: transform .3s ease;
+  }
+  .travel-badge:hover svg{
+    transform: translateX(3px) translateY(-2px);
+  }
+  .travel-badge-sparkle{
+    color: var(--gold);
+    font-size: 13px;
+    margin-left: 2px;
+    animation: sparklePulse 2s infinite ease-in-out;
+  }
+  @keyframes sparklePulse{
+    0%, 100%{ opacity: 0.7; transform: scale(1); }
+    50%{ opacity: 1; transform: scale(1.25); }
+  }
+
+  /* ---------- TRAVEL MODAL ---------- */
+  .travel-modal-backdrop{
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(30, 3, 18, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+  }
+  .travel-modal-backdrop.active{
+    opacity: 1;
+    visibility: visible;
+  }
+  .travel-modal-card{
+    background: var(--cream);
+    border: 1px solid rgba(201, 161, 90, 0.5);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 480px;
+    padding: 36px 32px 30px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    transform: scale(0.92) translateY(20px);
+    transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .travel-modal-backdrop.active .travel-modal-card{
+    transform: scale(1) translateY(0);
+  }
+  .travel-modal-close{
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(74, 19, 48, 0.08);
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    color: var(--wine);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .travel-modal-close:hover{
+    background: rgba(74, 19, 48, 0.18);
+    transform: rotate(90deg);
+  }
+  .travel-modal-head{
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .travel-modal-icon{
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--wine), #6e1a45);
+    color: var(--gold-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+    box-shadow: 0 6px 18px rgba(74, 19, 48, 0.25);
+  }
+  .travel-modal-icon svg{ width: 22px; height: 22px; }
+  .travel-modal-head h3{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--wine);
+    font-weight: 600;
+  }
+  .travel-modal-head p{
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+  .form-group{
+    margin-bottom: 16px;
+    text-align: left;
+  }
+  .form-group label{
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--wine);
+    margin-bottom: 6px;
+  }
+  .form-group input,
+  .form-group textarea{
+    width: 100%;
+    background: #fff;
+    border: 1px solid rgba(74, 19, 48, 0.2);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus{
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201, 161, 90, 0.2);
+  }
+  .form-group textarea{ resize: vertical; min-height: 72px; }
+  .travel-modal-actions{
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .btn-cancel{
+    flex: 1;
+    background: transparent;
+    border: 1px solid rgba(74, 19, 48, 0.25);
+    color: var(--wine);
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s ease, border-color .2s ease;
+  }
+  .btn-cancel:hover{
+    background: rgba(74, 19, 48, 0.08);
+    border-color: var(--wine);
+  }
+  .btn-send{
+    flex: 1.6;
+    background: var(--wine);
+    border: 1px solid var(--wine);
+    color: var(--cream);
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 6px 18px rgba(74, 19, 48, 0.25);
+    transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-send:hover{
+    background: var(--wine-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(74, 19, 48, 0.35);
+  }
+
+  .contact-panel{
+    background: var(--wine);
+    border-radius: 20px;
+    padding: 36px 32px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--cream);
+  }
+  .qr-box{
+    width:150px; height:150px;
+    background: #fff;
+    border-radius:16px;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:20px;
+    padding:14px;
+  }
+  .contact-panel .handle{ font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color: var(--gold-soft); }
+  .contact-panel .sub{ font-size:12.5px; color: rgba(251,243,234,0.7); margin-top:6px; letter-spacing:0.5px; }
+  .ig-link{
+    margin-top:18px;
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid rgba(251,243,234,0.4);
+    padding:9px 20px;
+    border-radius:999px;
+    font-size:12.5px;
+    font-weight:700;
+    transition: background .2s ease, border-color .2s ease;
+  }
+  .ig-link:hover{ background: rgba(251,243,234,0.12); border-color: var(--gold-soft); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background: var(--wine-deep);
+    color: rgba(251,243,234,0.65);
+    padding: 46px 0 32px;
+  }
+  .footer-grid{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;
+    padding-bottom: 28px; border-bottom: 1px solid rgba(251,243,234,0.12);
+  }
+  .footer-brand{ display:flex; align-items:center; }
+  .footer-logo-img{ height:62px; width:auto; max-width:240px; object-fit:contain; display:block; image-rendering:-webkit-optimize-contrast; }
+  .footer-links{ display:flex; gap:28px; font-size:13.5px; font-weight:600; }
+  .footer-links a:hover{ color: var(--gold-soft); }
+  .footer-bottom{ margin-top:24px; text-align:center; font-size:12.5px; }
+
+  /* reveal on scroll */
+  .reveal{ opacity:0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 980px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .medallion-wrap{ order:-1; max-width:340px; margin:0 auto; }
+    .service-grid{ grid-template-columns:1fr 1fr; }
+    .looks-grid{ grid-template-columns:1fr 1fr; }
+    .about-grid{ grid-template-columns:1fr; }
+    .about-visual{ order:-1; }
+    .contact-card{ grid-template-columns:1fr; padding: 44px 28px; }
+  }
+  @media (max-width: 600px){
+    .wrap{ padding:0 20px; }
+    .service-grid{ grid-template-columns:1fr; }
+    .looks-grid{ grid-template-columns:1fr 1fr; }
+    .hero{ padding:150px 0 80px; }
+    .hero-badges{ gap:24px; }
+    .contact-card{ padding:32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <nav>
+    <div class="brandmark">
+      <img class="logo-mark" src="{{ url_for('static', filename='logo.png') }}?v=4" alt="Zaisa Makeover logo">
+    </div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#looks">Looks</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="tel:+919003357370" class="nav-cta">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="display:inline-block; margin-right:4px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call to Book
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#services">Services</a>
+    <a href="#looks">Looks</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="dash"></span>
+        <span class="eyebrow">Bridal &amp; Occasion Artistry</span>
+      </div>
+      <h1>Enhancing Your Beauty,<br><em>Creating</em> Your Confidence</h1>
+      <p class="lede">Zaisa Makeover brings together saree pre-pletting, hairstyling and makeup artistry — tailored for your muhurtham, wedding, reception or any occasion that calls for your best look.</p>
+      <div class="hero-actions">
+        <a href="tel:+919003357370" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Enquiry or Book a Consultation
+        </a>
+        <a href="#looks" class="btn-secondary">View Our Looks</a>
+      </div>
+    </div>
+
+    <div class="medallion-wrap">
+      <svg class="medallion-ring" viewBox="0 0 460 460" fill="none">
+        <circle cx="230" cy="230" r="220" stroke="#c9a15a" stroke-width="0.7" stroke-dasharray="2 10" opacity="0.6"/>
+      </svg>
+      <div class="medallion-card">
+        <div class="medallion-plate">
+          <img src="{{ url_for('static', filename='logo.png') }}?v=4" alt="Zaisa Makeover" class="medallion-logo-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What We Offer</span>
+      <h2>Our Services</h2>
+      <div class="divider"><span class="line"></span><svg viewBox="0 0 24 24" fill="none" stroke="#c9a15a" stroke-width="1.5"><path d="M12 3c-4 3-6 6-6 10a6 6 0 0 0 12 0c0-4-2-7-6-10Z"/></svg><span class="line"></span></div>
+      <p>Every detail — from the drape of a saree to the final touch of makeup — is handled with care, so you can simply enjoy the occasion.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <img src="{{ url_for('static', filename='service-saree.jpg') }}?v=3" alt="Saree Pre-pletting" class="service-img">
+        </div>
+        <div class="service-content">
+          <h3>Saree Pre-pletting</h3>
+          <p>Precisely pre-pleated drapes so your saree sits perfectly from the first moment to the last dance.</p>
+          <div class="avail-tag"><span class="dot"></span>Service Available</div>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <img src="{{ url_for('static', filename='service-hairstyle.jpg') }}?v=2" alt="Bridal Hairstyle" class="service-img">
+        </div>
+        <div class="service-content">
+          <h3>Hairstyle</h3>
+          <p>Elegant updos, braids and floral finishes styled to suit your outfit, jewelry and the occasion.</p>
+          <div class="avail-tag"><span class="dot"></span>Service Available</div>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <img src="{{ url_for('static', filename='service-makeup.jpg') }}?v=3" alt="Bridal Makeup" class="service-img">
+        </div>
+        <div class="service-content">
+          <h3>Makeup</h3>
+          <p>Skin-first, long-wearing makeup — from soft muhurtham glam to full bridal reception glow.</p>
+          <div class="avail-tag"><span class="dot"></span>Service Available</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOOKS -->
+<section class="section" id="looks">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Portfolio</span>
+      <h2>Our Signature Looks</h2>
+      <div class="divider"><span class="line"></span><svg viewBox="0 0 24 24" fill="none" stroke="#c9a15a" stroke-width="1.5"><path d="M12 3c-4 3-6 6-6 10a6 6 0 0 0 12 0c0-4-2-7-6-10Z"/></svg><span class="line"></span></div>
+      <p>Four looks, four moods — each styled to match the spirit of its ceremony.</p>
+    </div>
+
+    <div class="looks-grid">
+      <div class="look-card reveal">
+        <img src="{{ url_for('static', filename='look-muhurtham.png') }}?v=5" alt="Muhurtham Bridal Look" class="look-img">
+        <div class="look-label">
+          <div class="name">Muhurtham</div>
+          <div class="tag">Traditional Glow</div>
+        </div>
+      </div>
+      <div class="look-card reveal">
+        <img src="{{ url_for('static', filename='look-christian.png') }}?v=5" alt="Christian Bridal Look" class="look-img">
+        <div class="look-label">
+          <div class="name">Christian</div>
+          <div class="tag">Soft Bridal White</div>
+        </div>
+      </div>
+      <div class="look-card reveal">
+        <img src="{{ url_for('static', filename='look-traditional.png') }}?v=5" alt="Traditional Bridal Look" class="look-img">
+        <div class="look-label">
+          <div class="name">Traditional</div>
+          <div class="tag">Classic Elegance</div>
+        </div>
+      </div>
+      <div class="look-card reveal">
+        <img src="{{ url_for('static', filename='look-reception.png') }}?v=5" alt="Reception Glam Look" class="look-img">
+        <div class="look-label">
+          <div class="name">Reception</div>
+          <div class="tag">Evening Glam</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="about-eyebrow">
+        <span class="dash"></span>
+        <span class="eyebrow" style="color:var(--gold-soft);">Why Zaisa</span>
+      </div>
+      <h2>Beauty that feels <em>like you</em>, only more radiant</h2>
+      <p>Zaisa Makeover was built around a simple idea: getting ready for your big day should feel calm, personal and beautiful. From the first saree fold to the final touch of makeup, every step is planned around your comfort and your story.</p>
+      <ul class="about-list">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e6cd9b" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>
+          Personalised looks for muhurtham, weddings, engagements and receptions
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e6cd9b" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>
+          Skin-friendly, long-wear products suited to your occasion
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e6cd9b" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>
+          Open to travel — Zaisa comes to your venue
+        </li>
+      </ul>
+    </div>
+    <div class="about-visual reveal">
+      <div class="about-emblem-card">
+        <div class="about-emblem-plate">
+          <img src="{{ url_for('static', filename='logo.png') }}?v=4" alt="Zaisa Makeover Logo" class="about-logo-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <div>
+        <span class="eyebrow">Get In Touch</span>
+        <h2 style="margin-top:12px;">Let's plan your look</h2>
+        <p class="copy">Call or message us to check availability for your date. We travel to your venue, so tell us where and when — we'll take care of the rest.</p>
+
+        <div class="contact-rows">
+          <div class="contact-row">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#4a1330" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div>
+              <div class="label">Call / WhatsApp</div>
+              <a class="value" href="tel:+919003357370">9003357370</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#4a1330" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></div>
+            <div>
+              <div class="label">Instagram</div>
+              <a class="value" href="https://www.instagram.com/zaisa__makeover_?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">@zaisa__makeover_</a>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="travel-badge" id="openTravelModal" aria-haspopup="dialog">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+          <span>Open to Travel Available</span>
+          <span class="travel-badge-sparkle">✦</span>
+        </button>
+      </div>
+
+      <div class="contact-panel">
+        <div class="qr-box">
+          <img src="{{ url_for('static', filename='instagram-qr.png') }}" alt="Zaisa Makeover Instagram QR Code" style="width:100%; height:100%; object-fit:contain; display:block;">
+        </div>
+        <div class="handle">@zaisa__makeover_</div>
+        <div class="sub">Scan to follow us on Instagram</div>
+        <a class="ig-link" href="https://www.instagram.com/zaisa__makeover_?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">Visit Instagram →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="{{ url_for('static', filename='logo-light.png') }}?v=4" alt="Zaisa Makeover Logo" class="footer-logo-img">
+      </div>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#looks">Looks</a>
+        <a href="#about">About</a>
+        <a href="tel:+919003357370">Call Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Zaisa Makeover. Enhancing Your Beauty, Creating Your Confidence.</div>
+  </div>
+</footer>
+
+<!-- TRAVEL POP-UP MODAL -->
+<div class="travel-modal-backdrop" id="travelModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="travelModalTitle">
+  <div class="travel-modal-card">
+    <button type="button" class="travel-modal-close" id="closeTravelModal" aria-label="Close pop-up">&times;</button>
+    <div class="travel-modal-head">
+      <div class="travel-modal-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+      </div>
+      <h3 id="travelModalTitle">Travel &amp; Venue Booking</h3>
+      <p>Fill in your details below and we will get back to you immediately for your destination event.</p>
+    </div>
+    <form id="travelForm" onsubmit="handleTravelSubmit(event)">
+      <div class="form-group">
+        <label for="travelName">Name</label>
+        <input type="text" id="travelName" name="name" placeholder="Enter your full name" required>
+      </div>
+      <div class="form-group">
+        <label for="travelPhone">Mobile Number</label>
+        <input type="tel" id="travelPhone" name="phone" placeholder="Enter your 10-digit mobile number" pattern="[0-9]{10}" required>
+      </div>
+      <div class="form-group">
+        <label for="travelAddress">Address</label>
+        <textarea id="travelAddress" name="address" rows="3" placeholder="Enter venue location or full address" required></textarea>
+      </div>
+      <div class="travel-modal-actions">
+        <button type="button" class="btn-cancel" id="cancelTravelModal">Cancel</button>
+        <button type="submit" class="btn-send">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+          Send Message
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  // header shadow on scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 12);
+  });
+
+  // mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const panel = document.getElementById('mobilePanel');
+  menuBtn.addEventListener('click', () => {
+    const open = panel.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    panel.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', false);
+  }));
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Travel Modal
+  const travelModal = document.getElementById('travelModal');
+  const openTravelBtn = document.getElementById('openTravelModal');
+  const closeTravelBtn = document.getElementById('closeTravelModal');
+  const cancelTravelBtn = document.getElementById('cancelTravelModal');
+  const travelForm = document.getElementById('travelForm');
+
+  function openModal() {
+    travelModal.classList.add('active');
+    travelModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('travelName').focus();
+  }
+
+  function closeModal() {
+    travelModal.classList.remove('active');
+    travelModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (openTravelBtn) openTravelBtn.addEventListener('click', openModal);
+  if (closeTravelBtn) closeTravelBtn.addEventListener('click', closeModal);
+  if (cancelTravelBtn) cancelTravelBtn.addEventListener('click', closeModal);
+
+  if (travelModal) {
+    travelModal.addEventListener('click', (e) => {
+      if (e.target === travelModal) closeModal();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && travelModal && travelModal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  function handleTravelSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('travelName').value.trim();
+    const phone = document.getElementById('travelPhone').value.trim();
+    const address = document.getElementById('travelAddress').value.trim();
+
+    const msg = `Hello Zaisa Makeover! I would like to enquire about your Open to Travel service:%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Mobile Number:* ${encodeURIComponent(phone)}%0A*Address / Venue:* ${encodeURIComponent(address)}`;
+    
+    // Open WhatsApp with prefilled message
+    window.open(`https://wa.me/919003357370?text=${msg}`, '_blank');
+    
+    travelForm.reset();
+    closeModal();
+  }
+</script>
+
+</body>
+</html>
