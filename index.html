@@ -6,6 +6,102 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zaisa Makeover — Enhancing Your Beauty, Creating Your Confidence</title>
 <meta name="description" content="Zaisa Makeover — bridal saree pre-pletting, hairstyle and makeup artistry. Open to travel. Book your look today.">
+
+<!-- Open Graph / WhatsApp / Instagram / Facebook Link Previews -->
+<meta property="og:type" content="business.business">
+<meta property="og:title" content="Zaisa Makeover — Bridal Makeup, Saree Pre-pletting & Hairstyle">
+<meta property="og:description" content="Personalised bridal artistry for Muhurtham, Christian weddings, receptions & occasions. Open to travel to your venue. Book your look today.">
+<meta property="og:image" content="look-muhurtham.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="800">
+<meta property="og:image:alt" content="Zaisa Makeover Signature Bridal Look">
+<meta property="og:site_name" content="Zaisa Makeover">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Zaisa Makeover — Enhancing Your Beauty, Creating Your Confidence">
+<meta name="twitter:description" content="Bridal saree pre-pletting, hairstyle and makeup artistry. Open to travel.">
+<meta name="twitter:image" content="look-muhurtham.png">
+
+<!-- LocalBusiness Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "Zaisa Makeover",
+  "alternateName": "Zaisa Makeover Artistry",
+  "description": "Zaisa Makeover provides bridal saree pre-pletting, bridal hairstyle, and makeup artistry. Open to travel for weddings, muhurtham, engagements, and receptions.",
+  "image": "logo.png",
+  "telephone": "+919003357370",
+  "priceRange": "₹₹",
+  "currenciesAccepted": "INR",
+  "paymentAccepted": "Cash, UPI, Net Banking",
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "India"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Tamil Nadu"
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Tamil Nadu",
+    "addressCountry": "IN"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "07:00",
+      "closes": "21:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/zaisa__makeover_"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Bridal Artistry Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Saree Pre-pletting",
+          "description": "Precision pre-pleated bridal saree drapes tailored for long-wearing comfort and elegance."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Bridal Hairstyle",
+          "description": "Elegant bridal updos, braids, floral finishes, and ceremony hairstyles."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Bridal Makeup",
+          "description": "Skin-first, long-wearing makeup from soft muhurtham glam to full bridal reception glow."
+        }
+      }
+    ]
+  }
+}
+</script>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -423,6 +519,19 @@
     line-height: 1.65;
     flex-grow: 1;
   }
+  .service-footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(74,19,48,0.08);
+  }
+  .service-footer .avail-tag{
+    margin-top: 0;
+  }
   .avail-tag{
     display:inline-flex;
     align-items:center;
@@ -434,10 +543,114 @@
     text-transform:uppercase;
     color: #3d7a4d;
     background: rgba(61,122,77,0.1);
-    padding: 6px 14px;
+    padding: 6px 13px;
     border-radius:999px;
   }
   .avail-tag .dot{ width:6px; height:6px; border-radius:50%; background:#3d7a4d; }
+
+  .btn-view-more{
+    background: transparent;
+    color: var(--wine);
+    border: 1px solid rgba(74,19,48,0.24);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all .25s ease;
+    user-select: none;
+    white-space: nowrap;
+  }
+  .btn-view-more:hover{
+    background: var(--wine);
+    color: var(--cream);
+    border-color: var(--wine);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74,19,48,0.18);
+  }
+  .btn-view-more:active{
+    transform: scale(0.96);
+  }
+  .btn-view-more.clicked{
+    background: linear-gradient(135deg, var(--wine), #6e1a45);
+    color: var(--gold-soft);
+    border-color: var(--gold);
+    box-shadow: 0 0 14px rgba(201,161,90,0.35);
+    animation: btnPulse 0.4s ease;
+  }
+  @keyframes btnPulse{
+    0%{ transform: scale(1); }
+    50%{ transform: scale(0.93); }
+    100%{ transform: scale(1); }
+  }
+
+  /* Animated Coming Soon Toast */
+  .toast-popup{
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(40px) scale(0.95);
+    background: linear-gradient(145deg, var(--wine-deep) 0%, var(--wine) 100%);
+    color: var(--cream);
+    padding: 13px 24px;
+    border-radius: 999px;
+    border: 1px solid var(--gold);
+    box-shadow: 0 20px 48px rgba(52, 4, 31, 0.45), 0 0 24px rgba(201, 161, 90, 0.3);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    pointer-events: none;
+  }
+  .toast-popup.show{
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0) scale(1);
+    animation: toastFloat 3s ease-in-out infinite alternate;
+  }
+  @keyframes toastFloat{
+    0%{ transform: translateX(-50%) translateY(0) scale(1); }
+    100%{ transform: translateX(-50%) translateY(-5px) scale(1); }
+  }
+  .toast-sparkle{
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(201, 161, 90, 0.25);
+    color: var(--gold-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+    animation: pulseSparkle 1.8s ease-in-out infinite;
+  }
+  @keyframes pulseSparkle{
+    0%, 100%{ transform: scale(1) rotate(0deg); }
+    50%{ transform: scale(1.25) rotate(90deg); color: #fff; }
+  }
+  .toast-msg{
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: var(--cream);
+  }
+  .toast-msg strong{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    color: var(--gold-soft);
+    letter-spacing: 0.5px;
+    margin-right: 4px;
+  }
 
   /* ---------- LOOKS ---------- */
   .looks-grid{
@@ -868,13 +1081,97 @@
     .about-visual{ order:-1; }
     .contact-card{ grid-template-columns:1fr; padding: 44px 28px; }
   }
+  /* WhatsApp Action Buttons & Floating Widget */
+  .nav-wa{
+    background: #25D366;
+    color: #fff;
+    padding: 9px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.32);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .nav-wa:hover{
+    background: #20ba59;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.45);
+  }
+  .nav-wa svg{ width:15px; height:15px; fill:currentColor; }
+
+  .floating-wa{
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 990;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    padding: 12px 20px 12px 16px;
+    border-radius: 999px;
+    box-shadow: 0 8px 26px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0,0,0,0.15);
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .floating-wa:hover{
+    background: #20ba59;
+    color: #fff;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 34px rgba(37, 211, 102, 0.6);
+  }
+  .floating-wa svg{
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+  .floating-wa-pulse{
+    position: absolute;
+    inset: -3px;
+    border-radius: 999px;
+    border: 2px solid #25D366;
+    animation: waPulse 2s infinite ease-out;
+    pointer-events: none;
+  }
+  @keyframes waPulse{
+    0%{ transform: scale(1); opacity: 0.85; }
+    100%{ transform: scale(1.18, 1.4); opacity: 0; }
+  }
+
+  @media (max-width: 860px){
+    .nav-wa{ display: none; }
+  }
+
   @media (max-width: 600px){
-    .wrap{ padding:0 20px; }
-    .service-grid{ grid-template-columns:1fr; }
-    .looks-grid{ grid-template-columns:1fr 1fr; }
-    .hero{ padding:150px 0 80px; }
-    .hero-badges{ gap:24px; }
-    .contact-card{ padding:32px 20px; }
+    .floating-wa{
+      bottom: 20px;
+      right: 18px;
+      padding: 13px;
+      border-radius: 50%;
+    }
+    .floating-wa-text{
+      display: none;
+    }
+    .floating-wa-pulse{
+      border-radius: 50%;
+      animation: waPulseMobile 2s infinite ease-out;
+    }
+    @keyframes waPulseMobile{
+      0%{ transform: scale(1); opacity: 0.85; }
+      100%{ transform: scale(1.4); opacity: 0; }
+    }
   }
 </style>
 </head>
@@ -883,7 +1180,7 @@
 <header id="site-header">
   <nav>
     <div class="brandmark">
-      <img class="logo-mark" src="logo.png" alt="Zaisa Makeover logo">
+      <img class="logo-mark" src="logo.png" alt="Zaisa Makeover logo" width="160" height="52">
     </div>
     <div class="nav-links">
       <a href="#services">Services</a>
@@ -892,6 +1189,10 @@
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-right">
+      <a href="https://wa.me/919003357370?text=Hello%20Zaisa%20Makeover!%20I%20would%20like%20to%20enquire%20about%20your%20bridal%20services." target="_blank" rel="noopener noreferrer" class="nav-wa" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.71 4.3 3.8 2.52 1.09 2.52.73 2.98.69.45-.05 1.47-.6 1.68-1.18.21-.59.21-1.09.15-1.19-.06-.1-.23-.17-.48-.3z"/></svg>
+        WhatsApp
+      </a>
       <a href="tel:+919003357370" class="nav-cta">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="display:inline-block; margin-right:4px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         Call to Book
@@ -906,6 +1207,7 @@
     <a href="#looks">Looks</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
+    <a href="https://wa.me/919003357370?text=Hello%20Zaisa%20Makeover!%20I%20would%20like%20to%20enquire%20about%20your%20bridal%20services." target="_blank" rel="noopener noreferrer" style="color: #25D366; font-weight:700;">💬 Chat on WhatsApp</a>
   </div>
 </header>
 
@@ -934,7 +1236,7 @@
       </svg>
       <div class="medallion-card">
         <div class="medallion-plate">
-          <img src="logo.png" alt="Zaisa Makeover" class="medallion-logo-img">
+          <img src="logo.png" alt="Zaisa Makeover" class="medallion-logo-img" width="300" height="300">
         </div>
       </div>
     </div>
@@ -954,34 +1256,52 @@
     <div class="service-grid">
       <div class="service-card reveal">
         <div class="service-img-wrap">
-          <img src="service-saree.jpg" alt="Saree Pre-pletting" class="service-img">
+          <img src="service-saree.jpg" alt="Saree Pre-pletting" class="service-img" loading="lazy" width="600" height="375">
         </div>
         <div class="service-content">
           <h3>Saree Pre-pletting</h3>
           <p>Precisely pre-pleated drapes so your saree sits perfectly from the first moment to the last dance.</p>
-          <div class="avail-tag"><span class="dot"></span>Service Available</div>
+          <div class="service-footer">
+            <div class="avail-tag"><span class="dot"></span>Service Available</div>
+            <button type="button" class="btn-view-more" onclick="handleViewMore(this)">
+              <span>View More</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
         </div>
       </div>
 
       <div class="service-card reveal">
         <div class="service-img-wrap">
-          <img src="service-hairstyle.jpg" alt="Bridal Hairstyle" class="service-img">
+          <img src="service-hairstyle.jpg" alt="Bridal Hairstyle" class="service-img" loading="lazy" width="600" height="375">
         </div>
         <div class="service-content">
           <h3>Hairstyle</h3>
           <p>Elegant updos, braids and floral finishes styled to suit your outfit, jewelry and the occasion.</p>
-          <div class="avail-tag"><span class="dot"></span>Service Available</div>
+          <div class="service-footer">
+            <div class="avail-tag"><span class="dot"></span>Service Available</div>
+            <button type="button" class="btn-view-more" onclick="handleViewMore(this)">
+              <span>View More</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
         </div>
       </div>
 
       <div class="service-card reveal">
         <div class="service-img-wrap">
-          <img src="service-makeup.jpg" alt="Bridal Makeup" class="service-img">
+          <img src="service-makeup.jpg" alt="Bridal Makeup" class="service-img" loading="lazy" width="600" height="375">
         </div>
         <div class="service-content">
           <h3>Makeup</h3>
           <p>Skin-first, long-wearing makeup — from soft muhurtham glam to full bridal reception glow.</p>
-          <div class="avail-tag"><span class="dot"></span>Service Available</div>
+          <div class="service-footer">
+            <div class="avail-tag"><span class="dot"></span>Service Available</div>
+            <button type="button" class="btn-view-more" onclick="handleViewMore(this)">
+              <span>View More</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -1000,28 +1320,28 @@
 
     <div class="looks-grid">
       <div class="look-card reveal">
-        <img src="look-muhurtham.png" alt="Muhurtham Bridal Look" class="look-img">
+        <img src="look-muhurtham.png" alt="Muhurtham Bridal Look" class="look-img" loading="lazy" width="600" height="800">
         <div class="look-label">
           <div class="name">Muhurtham</div>
           <div class="tag">Traditional Glow</div>
         </div>
       </div>
       <div class="look-card reveal">
-        <img src="look-christian.png" alt="Christian Bridal Look" class="look-img">
+        <img src="look-christian.png" alt="Christian Bridal Look" class="look-img" loading="lazy" width="600" height="800">
         <div class="look-label">
           <div class="name">Christian</div>
           <div class="tag">Soft Bridal White</div>
         </div>
       </div>
       <div class="look-card reveal">
-        <img src="look-traditional.png" alt="Traditional Bridal Look" class="look-img">
+        <img src="look-traditional.png" alt="Traditional Bridal Look" class="look-img" loading="lazy" width="600" height="800">
         <div class="look-label">
           <div class="name">Traditional</div>
           <div class="tag">Classic Elegance</div>
         </div>
       </div>
       <div class="look-card reveal">
-        <img src="look-reception.png" alt="Reception Glam Look" class="look-img">
+        <img src="look-reception.png" alt="Reception Glam Look" class="look-img" loading="lazy" width="600" height="800">
         <div class="look-label">
           <div class="name">Reception</div>
           <div class="tag">Evening Glam</div>
@@ -1059,7 +1379,7 @@
     <div class="about-visual reveal">
       <div class="about-emblem-card">
         <div class="about-emblem-plate">
-          <img src="logo.png" alt="Zaisa Makeover Logo" class="about-logo-img">
+          <img src="logo.png" alt="Zaisa Makeover Logo" class="about-logo-img" loading="lazy" width="300" height="300">
         </div>
       </div>
     </div>
@@ -1079,8 +1399,15 @@
           <div class="contact-row">
             <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#4a1330" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
             <div>
-              <div class="label">Call / WhatsApp</div>
-              <a class="value" href="tel:+919003357370">9003357370</a>
+              <div class="label">Call Directly</div>
+              <a class="value" href="tel:+919003357370">+91 9003357370</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="icon" style="background: linear-gradient(160deg, #dcfce7, #86efac);"><svg viewBox="0 0 24 24" fill="#15803d" width="22" height="22"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.71 4.3 3.8 2.52 1.09 2.52.73 2.98.69.45-.05 1.47-.6 1.68-1.18.21-.59.21-1.09.15-1.19-.06-.1-.23-.17-.48-.3z"/></svg></div>
+            <div>
+              <div class="label">Chat on WhatsApp</div>
+              <a class="value" href="https://wa.me/919003357370?text=Hello%20Zaisa%20Makeover!%20I%20would%20like%20to%20enquire%20about%20your%20bridal%20services." target="_blank" rel="noopener noreferrer">9003357370</a>
             </div>
           </div>
           <div class="contact-row">
@@ -1101,7 +1428,7 @@
 
       <div class="contact-panel">
         <div class="qr-box">
-          <img src="instagram-qr.png" alt="Zaisa Makeover Instagram QR Code" style="width:100%; height:100%; object-fit:contain; display:block;">
+          <img src="instagram-qr.png" alt="Zaisa Makeover Instagram QR Code" loading="lazy" width="150" height="150" style="width:100%; height:100%; object-fit:contain; display:block;">
         </div>
         <div class="handle">@zaisa__makeover_</div>
         <div class="sub">Scan to follow us on Instagram</div>
@@ -1115,13 +1442,14 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="logo-light.png" alt="Zaisa Makeover Logo" class="footer-logo-img">
+        <img src="logo-light.png" alt="Zaisa Makeover Logo" class="footer-logo-img" loading="lazy" width="240" height="62">
       </div>
       <div class="footer-links">
         <a href="#services">Services</a>
         <a href="#looks">Looks</a>
         <a href="#about">About</a>
         <a href="tel:+919003357370">Call Us</a>
+        <a href="https://wa.me/919003357370?text=Hello%20Zaisa%20Makeover!%20I%20would%20like%20to%20enquire%20about%20your%20bridal%20services." target="_blank" rel="noopener noreferrer" style="color:#25D366;">WhatsApp</a>
       </div>
     </div>
     <div class="footer-bottom">© 2026 Zaisa Makeover. Enhancing Your Beauty, Creating Your Confidence.</div>
@@ -1163,7 +1491,40 @@
   </div>
 </div>
 
+<!-- COMING SOON TOAST -->
+<div class="toast-popup" id="comingSoonToast" role="alert" aria-live="polite">
+  <span class="toast-sparkle">✦</span>
+  <div class="toast-msg">
+    <strong>Coming soon...</strong>
+    <span>More details &amp; bridal packages are arriving soon!</span>
+  </div>
+</div>
+
 <script>
+  // View More / Coming Soon animation
+  let toastTimer;
+  function handleViewMore(btn) {
+    if (!btn.dataset.original) {
+      btn.dataset.original = btn.innerHTML;
+    }
+    btn.classList.add('clicked');
+    btn.innerHTML = '<span>Coming soon...</span>';
+    
+    setTimeout(() => {
+      btn.innerHTML = btn.dataset.original;
+      btn.classList.remove('clicked');
+    }, 2200);
+
+    const toast = document.getElementById('comingSoonToast');
+    if (toast) {
+      clearTimeout(toastTimer);
+      toast.classList.add('show');
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+  }
+
   // header shadow on scroll
   const header = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
@@ -1239,6 +1600,15 @@
     closeModal();
   }
 </script>
+
+<!-- FLOATING WHATSAPP CHAT BUTTON -->
+<a href="https://wa.me/919003357370?text=Hello%20Zaisa%20Makeover!%20I%20would%20like%20to%20enquire%20about%20your%20bridal%20services." target="_blank" rel="noopener noreferrer" class="floating-wa" aria-label="Chat with Zaisa Makeover on WhatsApp">
+  <span class="floating-wa-pulse"></span>
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.71 4.3 3.8 2.52 1.09 2.52.73 2.98.69.45-.05 1.47-.6 1.68-1.18.21-.59.21-1.09.15-1.19-.06-.1-.23-.17-.48-.3z"/>
+  </svg>
+  <span class="floating-wa-text">Chat on WhatsApp</span>
+</a>
 
 </body>
 </html>
