@@ -1025,6 +1025,272 @@
     box-shadow: 0 10px 24px rgba(74, 19, 48, 0.35);
   }
 
+  /* ---------- SAREE GALLERY POPUP MODAL ---------- */
+  .saree-modal-backdrop{
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(30, 3, 18, 0.84);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s ease, visibility .35s ease;
+  }
+  .saree-modal-backdrop.active{
+    opacity: 1;
+    visibility: visible;
+  }
+  .saree-modal-card{
+    background: var(--cream);
+    border: 1.5px solid rgba(201, 161, 90, 0.5);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 620px;
+    max-height: 92vh;
+    overflow-y: auto;
+    padding: 30px 26px 24px;
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    transform: scale(0.93) translateY(20px);
+    transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .saree-modal-backdrop.active .saree-modal-card{
+    transform: scale(1) translateY(0);
+  }
+  .saree-modal-close{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(74, 19, 48, 0.08);
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    color: var(--wine);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s ease, transform .2s ease;
+    z-index: 5;
+  }
+  .saree-modal-close:hover{
+    background: rgba(74, 19, 48, 0.18);
+    transform: rotate(90deg);
+  }
+  .saree-modal-head{
+    text-align: center;
+    margin-bottom: 16px;
+    padding: 0 24px;
+  }
+  .saree-modal-head h3{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--wine);
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  .saree-modal-head p{
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+  .saree-gallery-stage{
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .stage-image-container{
+    width: 100%;
+    height: 340px;
+    background: #1a0312;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(52, 4, 31, 0.22);
+    border: 1px solid rgba(201, 161, 90, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .stage-img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: opacity .22s ease, transform .22s ease;
+    background: #180310;
+  }
+  .stage-badge{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(30, 3, 18, 0.78);
+    backdrop-filter: blur(6px);
+    color: var(--gold-soft);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(201, 161, 90, 0.35);
+    z-index: 2;
+  }
+  .stage-arrow{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(74, 19, 48, 0.9);
+    color: var(--cream);
+    border: 1.5px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+    z-index: 3;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .stage-arrow:focus{
+    outline: none;
+  }
+  .stage-arrow:focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+  .stage-arrow:hover{
+    background: var(--wine);
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 8px 22px rgba(74, 19, 48, 0.5);
+  }
+  .stage-arrow svg{
+    display: block;
+    flex-shrink: 0;
+    pointer-events: none;
+  }
+  .stage-arrow.prev{ left: 12px; }
+  .stage-arrow.prev svg{ transform: translateX(-1px); }
+  .stage-arrow.next{ right: 12px; }
+  .stage-arrow.next svg{ transform: translateX(1px); }
+  .stage-caption{
+    text-align: center;
+    font-size: 13.5px;
+    color: var(--wine);
+    margin-bottom: 14px;
+    font-weight: 500;
+    min-height: 20px;
+  }
+  .stage-caption strong{
+    color: var(--wine-deep);
+    font-weight: 700;
+  }
+  .saree-thumbs{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .thumb-btn{
+    width: 66px;
+    height: 66px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    padding: 0;
+    background: #1a0312;
+    cursor: pointer;
+    transition: all .2s ease;
+    box-shadow: 0 4px 12px rgba(52, 4, 31, 0.12);
+  }
+  .thumb-btn:hover{
+    transform: translateY(-2px);
+    border-color: rgba(201, 161, 90, 0.6);
+  }
+  .thumb-btn.active{
+    border-color: var(--gold);
+    transform: scale(1.08);
+    box-shadow: 0 6px 18px rgba(201, 161, 90, 0.45);
+  }
+  .thumb-btn img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .saree-modal-footer{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(74, 19, 48, 0.1);
+    padding-top: 18px;
+  }
+  .btn-saree-wa{
+    flex: 1.4;
+    background: #25D366;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+    transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-saree-wa:hover{
+    background: #20ba59;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(37, 211, 102, 0.45);
+    color: #fff;
+  }
+  .btn-saree-call{
+    flex: 1;
+    background: var(--wine);
+    color: var(--cream);
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(74, 19, 48, 0.25);
+    transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-saree-call:hover{
+    background: var(--wine-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(74, 19, 48, 0.35);
+  }
+  .service-card .service-img-wrap.clickable{
+    cursor: pointer;
+  }
+
   .contact-panel{
     background: var(--wine);
     border-radius: 20px;
@@ -1414,6 +1680,24 @@
     }
     .btn-cancel, .btn-send{ width: 100%; }
 
+    /* Saree Gallery Modal on Mobile */
+    .saree-modal-backdrop{ padding: 12px; }
+    .saree-modal-card{
+      padding: 22px 14px 18px;
+      max-height: 90vh;
+      border-radius: 18px;
+    }
+    .saree-modal-head{ padding: 0 16px; }
+    .saree-modal-head h3{ font-size: 22px; }
+    .stage-image-container{ height: 260px; border-radius: 12px; }
+    .stage-arrow{ width: 34px; height: 34px; }
+    .stage-arrow.prev{ left: 6px; }
+    .stage-arrow.next{ right: 6px; }
+    .thumb-btn{ width: 52px; height: 52px; border-radius: 10px; }
+    .saree-thumbs{ gap: 6px; margin-bottom: 14px; }
+    .saree-modal-footer{ flex-direction: column; width: 100%; gap: 10px; }
+    .btn-saree-wa, .btn-saree-call{ width: 100%; }
+
     /* Toast Notification */
     .toast-popup{
       width: calc(100% - 32px);
@@ -1551,7 +1835,7 @@
 
     <div class="service-grid">
       <div class="service-card reveal">
-        <div class="service-img-wrap">
+        <div class="service-img-wrap clickable" onclick="openSareeGallery()" title="Click to view saree pre-pletting photos">
           <img src="service-saree.jpg" alt="Saree Pre-pletting" class="service-img" loading="lazy" width="600" height="375">
         </div>
         <div class="service-content">
@@ -1559,16 +1843,16 @@
           <p>Precisely pre-pleated drapes so your saree sits perfectly from the first moment to the last dance.</p>
           <div class="service-footer">
             <div class="avail-tag"><span class="dot"></span>Service Available</div>
-            <button type="button" class="btn-view-more" onclick="handleViewMore(this)">
+            <button type="button" class="btn-view-more" id="sareeViewMoreBtn" onclick="openSareeGallery()" aria-haspopup="dialog">
               <span>View More</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </button>
           </div>
         </div>
       </div>
 
       <div class="service-card reveal">
-        <div class="service-img-wrap">
+        <div class="service-img-wrap clickable" onclick="openHairstyleGallery()" title="Click to view bridal hairstyle photos">
           <img src="service-hairstyle.jpg" alt="Bridal Hairstyle" class="service-img" loading="lazy" width="600" height="375">
         </div>
         <div class="service-content">
@@ -1576,16 +1860,16 @@
           <p>Elegant updos, braids and floral finishes styled to suit your outfit, jewelry and the occasion.</p>
           <div class="service-footer">
             <div class="avail-tag"><span class="dot"></span>Service Available</div>
-            <button type="button" class="btn-view-more" onclick="handleViewMore(this)">
+            <button type="button" class="btn-view-more" id="hairstyleViewMoreBtn" onclick="openHairstyleGallery()" aria-haspopup="dialog">
               <span>View More</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </button>
           </div>
         </div>
       </div>
 
       <div class="service-card reveal">
-        <div class="service-img-wrap">
+        <div class="service-img-wrap clickable" onclick="openMakeupGallery()" title="Click to view bridal makeup photos">
           <img src="service-makeup.jpg" alt="Bridal Makeup" class="service-img" loading="lazy" width="600" height="375">
         </div>
         <div class="service-content">
@@ -1593,9 +1877,9 @@
           <p>Skin-first, long-wearing makeup — from soft muhurtham glam to full bridal reception glow.</p>
           <div class="service-footer">
             <div class="avail-tag"><span class="dot"></span>Service Available</div>
-            <button type="button" class="btn-view-more" onclick="handleViewMore(this)">
+            <button type="button" class="btn-view-more" id="makeupViewMoreBtn" onclick="openMakeupGallery()" aria-haspopup="dialog">
               <span>View More</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </button>
           </div>
         </div>
@@ -1787,6 +2071,186 @@
   </div>
 </div>
 
+<!-- SAREE PRE-PLETTING GALLERY MODAL -->
+<div class="saree-modal-backdrop" id="sareeGalleryModal" role="dialog" aria-modal="true" aria-labelledby="sareeGalleryTitle">
+  <div class="saree-modal-card">
+    <button type="button" class="saree-modal-close" id="closeSareeModal" aria-label="Close gallery">&times;</button>
+    
+    <div class="saree-modal-head">
+      <span class="eyebrow" style="font-size:11px; letter-spacing:2.5px;">Client Work Showcase</span>
+      <h3 id="sareeGalleryTitle">Saree Pre-Pletting Gallery</h3>
+      <p>Explore real sarees pre-pleated, pinned and ready-to-wear by Zaisa Makeover.</p>
+    </div>
+
+    <div class="saree-gallery-stage">
+      <button type="button" class="stage-arrow prev" id="sareePrevBtn" aria-label="Previous photo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+
+      <div class="stage-image-container">
+        <img id="sareeMainImg" src="saree-pleat-1.jpg" alt="Lavender &amp; Gold Zari Pre-pleated Saree" class="stage-img">
+        <div class="stage-badge" id="sareeCounter">1 / 5</div>
+      </div>
+
+      <button type="button" class="stage-arrow next" id="sareeNextBtn" aria-label="Next photo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+
+    <div class="stage-caption" id="sareeCaption">
+      <strong>Lavender &amp; Gold Zari</strong> — Precision box-pleated silk drape
+    </div>
+
+    <!-- 5 Photo Thumbnails -->
+    <div class="saree-thumbs" id="sareeThumbs">
+      <button type="button" class="thumb-btn active" data-index="0" aria-label="View Saree 1: Lavender and gold">
+        <img src="saree-pleat-1.jpg" alt="Lavender silk saree pleats" loading="lazy" width="66" height="66">
+      </button>
+      <button type="button" class="thumb-btn" data-index="1" aria-label="View Saree 2: Emerald green and crimson">
+        <img src="saree-pleat-2.jpg" alt="Emerald green saree pleats" loading="lazy" width="66" height="66">
+      </button>
+      <button type="button" class="thumb-btn" data-index="2" aria-label="View Saree 3: Royal maroon and teal">
+        <img src="saree-pleat-3.jpg" alt="Wine maroon saree pleats" loading="lazy" width="66" height="66">
+      </button>
+      <button type="button" class="thumb-btn" data-index="3" aria-label="View Saree 4: Turquoise blue and dark green">
+        <img src="saree-pleat-4.jpg" alt="Turquoise blue saree pleats" loading="lazy" width="66" height="66">
+      </button>
+      <button type="button" class="thumb-btn" data-index="4" aria-label="View Saree 5: Rani pink and peacock blue">
+        <img src="saree-pleat-5.jpg" alt="Rani pink saree pleats" loading="lazy" width="66" height="66">
+      </button>
+    </div>
+
+    <div class="saree-modal-footer">
+      <a href="https://wa.me/919003357370?text=Hello%20Zaisa%20Makeover!%20I%20saw%20your%20saree%20pre-pletting%20pictures%20and%20want%20to%20book%20a%20pre-pletting%20service." target="_blank" rel="noopener noreferrer" class="btn-saree-wa">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.71 4.3 3.8 2.52 1.09 2.52.73 2.98.69.45-.05 1.47-.6 1.68-1.18.21-.59.21-1.09.15-1.19-.06-.1-.23-.17-.48-.3z"/></svg>
+        <span>Book Pre-Pletting on WhatsApp</span>
+      </a>
+      <a href="tel:+919003357370" class="btn-saree-call">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Call Now</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- HAIRSTYLE GALLERY MODAL -->
+<div class="saree-modal-backdrop" id="hairstyleGalleryModal" role="dialog" aria-modal="true" aria-labelledby="hairstyleGalleryTitle">
+  <div class="saree-modal-card">
+    <button type="button" class="saree-modal-close" id="closeHairstyleModal" aria-label="Close gallery">&times;</button>
+    
+    <div class="saree-modal-head">
+      <span class="eyebrow" style="font-size:11px; letter-spacing:2.5px;">Client Work Showcase</span>
+      <h3 id="hairstyleGalleryTitle">Bridal Hairstyling Gallery</h3>
+      <p>Explore real bridal braids, floral veni styles, and occasion updos by Zaisa Makeover.</p>
+    </div>
+
+    <div class="saree-gallery-stage">
+      <button type="button" class="stage-arrow prev" id="hairstylePrevBtn" aria-label="Previous photo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+
+      <div class="stage-image-container">
+        <img id="hairstyleMainImg" src="hairstyle-1.jpg" alt="Traditional South Indian Bridal Braid with Gajra &amp; Gold Jada Billalu" class="stage-img">
+        <div class="stage-badge" id="hairstyleCounter">1 / 5</div>
+      </div>
+
+      <button type="button" class="stage-arrow next" id="hairstyleNextBtn" aria-label="Next photo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+
+    <div class="stage-caption" id="hairstyleCaption">
+      <strong>Traditional Bridal Braid</strong> — Fresh jasmine &amp; red rose gajra with gold temple jada billalu
+    </div>
+
+    <!-- 5 Photo Thumbnails -->
+    <div class="saree-thumbs" id="hairstyleThumbs">
+      <button type="button" class="thumb-btn active" data-index="0" aria-label="View Hairstyle 1: Traditional Bridal Braid">
+        <img src="hairstyle-1.jpg" alt="Bridal braid with jasmine flowers" loading="lazy" width="66" height="66">
+      </button>
+      <button type="button" class="thumb-btn" data-index="1" aria-label="View Hairstyle 2: Crystal Leaf Half-Up Curls">
+        <img src="hairstyle-2.jpg" alt="Half-up curls with leaf tiara" loading="lazy" width="66" height="66">
+      </button>
+      <button type="button" class="thumb-btn" data-index="2" aria-label="View Hairstyle 3: Textured Crown Twist Curls">
+        <img src="hairstyle-3.jpg" alt="Textured crown twist curls" loading="lazy" width="66" height="66">
+      </button>
+      <button type="button" class="thumb-btn" data-index="3" aria-label="View Hairstyle 4: Soft Bohemian Wave Curls">
+        <img src="hairstyle-4.jpg" alt="Bohemian twist curls" loading="lazy" width="66" height="66">
+      </button>
+      <button type="button" class="thumb-btn" data-index="4" aria-label="View Hairstyle 5: Crimson Lehenga Fishtail Braid">
+        <img src="hairstyle-5.jpg" alt="Bridal fishtail braid with floral veni" loading="lazy" width="66" height="66">
+      </button>
+    </div>
+
+    <div class="saree-modal-footer">
+      <a href="https://wa.me/919003357370?text=Hello%20Zaisa%20Makeover!%20I%20saw%20your%20bridal%20hairstyling%20pictures%20and%20want%20to%20book%20a%20hairstyling%20service." target="_blank" rel="noopener noreferrer" class="btn-saree-wa">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.71 4.3 3.8 2.52 1.09 2.52.73 2.98.69.45-.05 1.47-.6 1.68-1.18.21-.59.21-1.09.15-1.19-.06-.1-.23-.17-.48-.3z"/></svg>
+        <span>Book Hairstyle on WhatsApp</span>
+      </a>
+      <a href="tel:+919003357370" class="btn-saree-call">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Call Now</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- BRIDAL MAKEUP GALLERY MODAL -->
+<div class="saree-modal-backdrop" id="makeupGalleryModal" role="dialog" aria-modal="true" aria-labelledby="makeupGalleryTitle">
+  <div class="saree-modal-card">
+    <button type="button" class="saree-modal-close" id="closeMakeupModal" aria-label="Close gallery">&times;</button>
+    
+    <div class="saree-modal-head">
+      <span class="eyebrow" style="font-size:11px; letter-spacing:2.5px;">Client Work Showcase</span>
+      <h3 id="makeupGalleryTitle">Bridal Makeup Gallery</h3>
+      <p>Explore radiant bridal, muhurtham, and reception looks styled by Zaisa Makeover.</p>
+    </div>
+
+    <div class="saree-gallery-stage">
+      <button type="button" class="stage-arrow prev" id="makeupPrevBtn" aria-label="Previous photo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+
+      <div class="stage-image-container">
+        <img id="makeupMainImg" src="makeup-1.jpg" alt="Bridal Crimson &amp; Gold Dupatta Look with Radiant Glowing Skin and Maang Tikka" class="stage-img">
+        <div class="stage-badge" id="makeupCounter">1 / 3</div>
+      </div>
+
+      <button type="button" class="stage-arrow next" id="makeupNextBtn" aria-label="Next photo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+
+    <div class="stage-caption" id="makeupCaption">
+      <strong>Bridal Crimson &amp; Gold Dupatta</strong> — Radiant glowing skin, defined winged liner, rose gold maang tikka, and regal gold jewellery
+    </div>
+
+    <!-- 3 Photo Thumbnails -->
+    <div class="saree-thumbs" id="makeupThumbs">
+      <button type="button" class="thumb-btn active" data-index="0" aria-label="View Makeup 1: Bridal Crimson &amp; Gold Dupatta">
+        <img src="makeup-1.jpg" alt="Bridal Crimson &amp; Gold Dupatta" loading="lazy" width="66" height="66">
+      </button>
+      <button type="button" class="thumb-btn" data-index="1" aria-label="View Makeup 2: Traditional Muhurtham Bridal Glam">
+        <img src="makeup-2.jpg" alt="Traditional Muhurtham Bridal Glam" loading="lazy" width="66" height="66">
+      </button>
+      <button type="button" class="thumb-btn" data-index="2" aria-label="View Makeup 3: Modern Reception Glamour">
+        <img src="makeup-3.jpg" alt="Modern Reception Glamour" loading="lazy" width="66" height="66">
+      </button>
+    </div>
+
+    <div class="saree-modal-footer">
+      <a href="https://wa.me/919003357370?text=Hello%20Zaisa%20Makeover!%20I%20saw%20your%20bridal%20makeup%20pictures%20and%20want%20to%20book%20a%20makeup%20service." target="_blank" rel="noopener noreferrer" class="btn-saree-wa">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.71 4.3 3.8 2.52 1.09 2.52.73 2.98.69.45-.05 1.47-.6 1.68-1.18.21-.59.21-1.09.15-1.19-.06-.1-.23-.17-.48-.3z"/></svg>
+        <span>Book Makeup on WhatsApp</span>
+      </a>
+      <a href="tel:+919003357370" class="btn-saree-call">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Call Now</span>
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- COMING SOON TOAST -->
 <div class="toast-popup" id="comingSoonToast" role="alert" aria-live="polite">
   <span class="toast-sparkle">✦</span>
@@ -1797,7 +2261,128 @@
 </div>
 
 <script>
-  // View More / Coming Soon animation
+  // Saree Pre-pletting Gallery Modal Logic
+  const sareeImages = [
+    {
+      src: 'saree-pleat-1.jpg',
+      title: 'Lavender & Gold Zari',
+      desc: 'Precision box-pleated silk drape with crisp pallu pleats'
+    },
+    {
+      src: 'saree-pleat-2.jpg',
+      title: 'Emerald Green & Crimson Zari',
+      desc: 'Rich bridal silk drape with aligned contrast border'
+    },
+    {
+      src: 'saree-pleat-3.jpg',
+      title: 'Royal Maroon & Teal Accent',
+      desc: 'Traditional muhurtham box pleats with double zari pallu'
+    },
+    {
+      src: 'saree-pleat-4.jpg',
+      title: 'Turquoise Blue & Forest Green',
+      desc: 'Fine knife pleating with metallic gold border finish'
+    },
+    {
+      src: 'saree-pleat-5.jpg',
+      title: 'Rani Pink & Peacock Blue',
+      desc: 'Vibrant bridal kanchipuram silk pre-pleated and pinned'
+    }
+  ];
+
+  let currentSareeIdx = 0;
+  const sareeModal = document.getElementById('sareeGalleryModal');
+  const sareeMainImg = document.getElementById('sareeMainImg');
+  const sareeCounter = document.getElementById('sareeCounter');
+  const sareeCaption = document.getElementById('sareeCaption');
+  const sareeThumbs = document.querySelectorAll('#sareeThumbs .thumb-btn');
+
+  function updateSareeDisplay(index) {
+    if (index < 0) index = sareeImages.length - 1;
+    if (index >= sareeImages.length) index = 0;
+    currentSareeIdx = index;
+    const item = sareeImages[currentSareeIdx];
+
+    if (sareeMainImg) {
+      sareeMainImg.style.opacity = '0.35';
+      sareeMainImg.style.transform = 'scale(0.98)';
+      setTimeout(() => {
+        sareeMainImg.src = item.src;
+        sareeMainImg.alt = item.title + ' - ' + item.desc;
+        sareeMainImg.style.opacity = '1';
+        sareeMainImg.style.transform = 'scale(1)';
+      }, 100);
+    }
+
+    if (sareeCounter) sareeCounter.textContent = (currentSareeIdx + 1) + ' / ' + sareeImages.length;
+    if (sareeCaption) {
+      sareeCaption.innerHTML = '<strong>' + item.title + '</strong> — ' + item.desc;
+    }
+
+    sareeThumbs.forEach((thumb, idx) => {
+      thumb.classList.toggle('active', idx === currentSareeIdx);
+    });
+  }
+
+  function openSareeGallery() {
+    if (!sareeModal) return;
+    updateSareeDisplay(currentSareeIdx);
+    sareeModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSareeGallery() {
+    if (!sareeModal) return;
+    sareeModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Preload gallery images for smooth transitions
+  sareeImages.forEach(item => {
+    const img = new Image();
+    img.src = item.src;
+  });
+
+  const closeSareeBtn = document.getElementById('closeSareeModal');
+  if (closeSareeBtn) closeSareeBtn.addEventListener('click', closeSareeGallery);
+
+  if (sareeModal) {
+    sareeModal.addEventListener('click', (e) => {
+      if (e.target === sareeModal) closeSareeGallery();
+    });
+  }
+
+  const sareePrevBtn = document.getElementById('sareePrevBtn');
+  const sareeNextBtn = document.getElementById('sareeNextBtn');
+  if (sareePrevBtn) sareePrevBtn.addEventListener('click', () => updateSareeDisplay(currentSareeIdx - 1));
+  if (sareeNextBtn) sareeNextBtn.addEventListener('click', () => updateSareeDisplay(currentSareeIdx + 1));
+
+  sareeThumbs.forEach((thumb) => {
+    thumb.addEventListener('click', function() {
+      const idx = parseInt(this.getAttribute('data-index'), 10);
+      updateSareeDisplay(idx);
+    });
+  });
+
+  // Touch Swipe for Mobile Gallery
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const stageEl = document.querySelector('#sareeGalleryModal .saree-gallery-stage');
+  if (stageEl) {
+    stageEl.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    stageEl.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 45) {
+        updateSareeDisplay(currentSareeIdx + 1);
+      } else if (touchEndX - touchStartX > 45) {
+        updateSareeDisplay(currentSareeIdx - 1);
+      }
+    }, { passive: true });
+  }
+
+  // View More / Coming Soon animation (for other services)
   let toastTimer;
   function handleViewMore(btn) {
     if (!btn.dataset.original) {
@@ -1875,9 +2460,256 @@
     });
   }
 
+  // Hairstyle Gallery Modal Logic
+  const hairstyleImages = [
+    {
+      src: 'hairstyle-1.jpg',
+      title: 'Traditional Bridal Braid',
+      desc: 'Fresh jasmine & red rose gajra with gold temple jada billalu'
+    },
+    {
+      src: 'hairstyle-2.jpg',
+      title: 'Crystal Leaf Half-Updo',
+      desc: 'Romantic cascading curls with rose gold leaf tiara accessory'
+    },
+    {
+      src: 'hairstyle-3.jpg',
+      title: 'Textured Crown Twist',
+      desc: 'Voluminous half-up curls with golden sun-kissed highlights'
+    },
+    {
+      src: 'hairstyle-4.jpg',
+      title: 'Soft Bohemian Wave Curls',
+      desc: 'Textured crown braid with flowing romantic spiral curls'
+    },
+    {
+      src: 'hairstyle-5.jpg',
+      title: 'Crimson Bridal Fishtail',
+      desc: 'Thick bridal plait adorned with fresh white floral veni'
+    }
+  ];
+
+  let currentHairstyleIdx = 0;
+  const hairstyleModal = document.getElementById('hairstyleGalleryModal');
+  const hairstyleMainImg = document.getElementById('hairstyleMainImg');
+  const hairstyleCounter = document.getElementById('hairstyleCounter');
+  const hairstyleCaption = document.getElementById('hairstyleCaption');
+  const hairstyleThumbs = document.querySelectorAll('#hairstyleThumbs .thumb-btn');
+
+  function updateHairstyleDisplay(index) {
+    if (index < 0) index = hairstyleImages.length - 1;
+    if (index >= hairstyleImages.length) index = 0;
+    currentHairstyleIdx = index;
+    const item = hairstyleImages[currentHairstyleIdx];
+
+    if (hairstyleMainImg) {
+      hairstyleMainImg.style.opacity = '0.35';
+      hairstyleMainImg.style.transform = 'scale(0.98)';
+      setTimeout(() => {
+        hairstyleMainImg.src = item.src;
+        hairstyleMainImg.alt = item.title + ' - ' + item.desc;
+        hairstyleMainImg.style.opacity = '1';
+        hairstyleMainImg.style.transform = 'scale(1)';
+      }, 100);
+    }
+
+    if (hairstyleCounter) hairstyleCounter.textContent = (currentHairstyleIdx + 1) + ' / ' + hairstyleImages.length;
+    if (hairstyleCaption) {
+      hairstyleCaption.innerHTML = '<strong>' + item.title + '</strong> — ' + item.desc;
+    }
+
+    hairstyleThumbs.forEach((thumb, idx) => {
+      thumb.classList.toggle('active', idx === currentHairstyleIdx);
+    });
+  }
+
+  function openHairstyleGallery() {
+    if (!hairstyleModal) return;
+    updateHairstyleDisplay(currentHairstyleIdx);
+    hairstyleModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeHairstyleGallery() {
+    if (!hairstyleModal) return;
+    hairstyleModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Preload hairstyle images
+  hairstyleImages.forEach(item => {
+    const img = new Image();
+    img.src = item.src;
+  });
+
+  const closeHairstyleBtn = document.getElementById('closeHairstyleModal');
+  if (closeHairstyleBtn) closeHairstyleBtn.addEventListener('click', closeHairstyleGallery);
+
+  if (hairstyleModal) {
+    hairstyleModal.addEventListener('click', (e) => {
+      if (e.target === hairstyleModal) closeHairstyleGallery();
+    });
+  }
+
+  const hairstylePrevBtn = document.getElementById('hairstylePrevBtn');
+  const hairstyleNextBtn = document.getElementById('hairstyleNextBtn');
+  if (hairstylePrevBtn) hairstylePrevBtn.addEventListener('click', () => updateHairstyleDisplay(currentHairstyleIdx - 1));
+  if (hairstyleNextBtn) hairstyleNextBtn.addEventListener('click', () => updateHairstyleDisplay(currentHairstyleIdx + 1));
+
+  hairstyleThumbs.forEach((thumb) => {
+    thumb.addEventListener('click', function() {
+      const idx = parseInt(this.getAttribute('data-index'), 10);
+      updateHairstyleDisplay(idx);
+    });
+  });
+
+  // Touch swipe for Hairstyle gallery
+  const hairstyleStageEl = document.querySelector('#hairstyleGalleryModal .saree-gallery-stage');
+  if (hairstyleStageEl) {
+    let hTouchStartX = 0;
+    let hTouchEndX = 0;
+    hairstyleStageEl.addEventListener('touchstart', (e) => {
+      hTouchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    hairstyleStageEl.addEventListener('touchend', (e) => {
+      hTouchEndX = e.changedTouches[0].screenX;
+      if (hTouchStartX - hTouchEndX > 45) {
+        updateHairstyleDisplay(currentHairstyleIdx + 1);
+      } else if (hTouchEndX - hTouchStartX > 45) {
+        updateHairstyleDisplay(currentHairstyleIdx - 1);
+      }
+    }, { passive: true });
+  }
+
+  // Bridal Makeup Gallery Modal Logic
+  const makeupImages = [
+    {
+      src: 'makeup-1.jpg',
+      title: 'Bridal Crimson & Gold Dupatta',
+      desc: 'Radiant glowing skin, defined winged liner, rose gold maang tikka, and regal gold jewellery'
+    },
+    {
+      src: 'makeup-2.jpg',
+      title: 'Traditional Muhurtham Bridal Glam',
+      desc: 'Flawless satin finish, subtle smokey eyes, layered diamond haram, and classic South Indian bridal elegance'
+    },
+    {
+      src: 'makeup-3.jpg',
+      title: 'Modern Reception Glamour',
+      desc: 'Luminous dewy complexion, natural warm blush, and soft coral lips paired with peacock blue silk'
+    }
+  ];
+
+  let currentMakeupIdx = 0;
+  const makeupModal = document.getElementById('makeupGalleryModal');
+  const makeupMainImg = document.getElementById('makeupMainImg');
+  const makeupCounter = document.getElementById('makeupCounter');
+  const makeupCaption = document.getElementById('makeupCaption');
+  const makeupThumbs = document.querySelectorAll('#makeupThumbs .thumb-btn');
+
+  function updateMakeupDisplay(index) {
+    if (index < 0) index = makeupImages.length - 1;
+    if (index >= makeupImages.length) index = 0;
+    currentMakeupIdx = index;
+    const item = makeupImages[currentMakeupIdx];
+
+    if (makeupMainImg) {
+      makeupMainImg.style.opacity = '0.35';
+      makeupMainImg.style.transform = 'scale(0.98)';
+      setTimeout(() => {
+        makeupMainImg.src = item.src;
+        makeupMainImg.alt = item.title + ' - ' + item.desc;
+        makeupMainImg.style.opacity = '1';
+        makeupMainImg.style.transform = 'scale(1)';
+      }, 100);
+    }
+
+    if (makeupCounter) makeupCounter.textContent = (currentMakeupIdx + 1) + ' / ' + makeupImages.length;
+    if (makeupCaption) {
+      makeupCaption.innerHTML = '<strong>' + item.title + '</strong> — ' + item.desc;
+    }
+
+    makeupThumbs.forEach((thumb, idx) => {
+      thumb.classList.toggle('active', idx === currentMakeupIdx);
+    });
+  }
+
+  function openMakeupGallery() {
+    if (!makeupModal) return;
+    updateMakeupDisplay(currentMakeupIdx);
+    makeupModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMakeupGallery() {
+    if (!makeupModal) return;
+    makeupModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Preload makeup images
+  makeupImages.forEach(item => {
+    const img = new Image();
+    img.src = item.src;
+  });
+
+  const closeMakeupBtn = document.getElementById('closeMakeupModal');
+  if (closeMakeupBtn) closeMakeupBtn.addEventListener('click', closeMakeupGallery);
+
+  if (makeupModal) {
+    makeupModal.addEventListener('click', (e) => {
+      if (e.target === makeupModal) closeMakeupGallery();
+    });
+  }
+
+  const makeupPrevBtn = document.getElementById('makeupPrevBtn');
+  const makeupNextBtn = document.getElementById('makeupNextBtn');
+  if (makeupPrevBtn) makeupPrevBtn.addEventListener('click', () => updateMakeupDisplay(currentMakeupIdx - 1));
+  if (makeupNextBtn) makeupNextBtn.addEventListener('click', () => updateMakeupDisplay(currentMakeupIdx + 1));
+
+  makeupThumbs.forEach((thumb) => {
+    thumb.addEventListener('click', function() {
+      const idx = parseInt(this.getAttribute('data-index'), 10);
+      updateMakeupDisplay(idx);
+    });
+  });
+
+  // Touch swipe for Makeup gallery
+  const makeupStageEl = document.querySelector('#makeupGalleryModal .saree-gallery-stage');
+  if (makeupStageEl) {
+    let mTouchStartX = 0;
+    let mTouchEndX = 0;
+    makeupStageEl.addEventListener('touchstart', (e) => {
+      mTouchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    makeupStageEl.addEventListener('touchend', (e) => {
+      mTouchEndX = e.changedTouches[0].screenX;
+      if (mTouchStartX - mTouchEndX > 45) {
+        updateMakeupDisplay(currentMakeupIdx + 1);
+      } else if (mTouchEndX - mTouchStartX > 45) {
+        updateMakeupDisplay(currentMakeupIdx - 1);
+      }
+    }, { passive: true });
+  }
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && travelModal && travelModal.classList.contains('active')) {
-      closeModal();
+    if (e.key === 'Escape') {
+      if (travelModal && travelModal.classList.contains('active')) closeModal();
+      if (sareeModal && sareeModal.classList.contains('active')) closeSareeGallery();
+      if (hairstyleModal && hairstyleModal.classList.contains('active')) closeHairstyleGallery();
+      if (makeupModal && makeupModal.classList.contains('active')) closeMakeupGallery();
+    }
+    if (sareeModal && sareeModal.classList.contains('active')) {
+      if (e.key === 'ArrowLeft') updateSareeDisplay(currentSareeIdx - 1);
+      if (e.key === 'ArrowRight') updateSareeDisplay(currentSareeIdx + 1);
+    }
+    if (hairstyleModal && hairstyleModal.classList.contains('active')) {
+      if (e.key === 'ArrowLeft') updateHairstyleDisplay(currentHairstyleIdx - 1);
+      if (e.key === 'ArrowRight') updateHairstyleDisplay(currentHairstyleIdx + 1);
+    }
+    if (makeupModal && makeupModal.classList.contains('active')) {
+      if (e.key === 'ArrowLeft') updateMakeupDisplay(currentMakeupIdx - 1);
+      if (e.key === 'ArrowRight') updateMakeupDisplay(currentMakeupIdx + 1);
     }
   });
 
