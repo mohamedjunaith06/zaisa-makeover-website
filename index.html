@@ -530,14 +530,11 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 10px;
     margin-top: 20px;
     padding-top: 14px;
     border-top: 1px solid rgba(74,19,48,0.08);
-  }
-  .service-footer .avail-tag{
-    margin-top: 0;
   }
   .avail-tag{
     display:inline-flex;
@@ -608,7 +605,7 @@
     border-radius: 999px;
     border: 1px solid var(--gold);
     box-shadow: 0 20px 48px rgba(52, 4, 31, 0.45), 0 0 24px rgba(201, 161, 90, 0.3);
-    z-index: 1000;
+    z-index: 3000 !important;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
@@ -657,6 +654,157 @@
     color: var(--gold-soft);
     letter-spacing: 0.5px;
     margin-right: 4px;
+  }
+
+
+    /* Modal Review Write Button */
+  .btn-modal-write-review{
+    background: var(--wine);
+    color: var(--gold-soft);
+    border: 1px solid var(--gold);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all .2s ease;
+    box-shadow: 0 2px 8px rgba(74, 19, 48, 0.15);
+  }
+  .btn-modal-write-review:hover{
+    background: var(--wine-deep);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74, 19, 48, 0.25);
+  }
+
+  /* Review Modal - Elevated strictly in front of all gallery modals */
+  #reviewModal{
+    z-index: 2500 !important;
+    background: rgba(20, 2, 12, 0.85) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+  #reviewModal.travel-modal-backdrop.active{
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+  }
+  #reviewModal .review-modal-card{
+    position: relative !important;
+    z-index: 2501 !important;
+    box-shadow: 0 32px 85px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.15) !important;
+  }
+
+  /* Review Modal Form Styling */
+  .review-icon{
+    background: rgba(201, 161, 90, 0.2) !important;
+    color: var(--gold) !important;
+  }
+  .service-chip-group{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .service-chip{
+    cursor: pointer;
+    margin: 0;
+  }
+  .service-chip input{
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .service-chip span{
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(74, 19, 48, 0.05);
+    border: 1px solid rgba(74, 19, 48, 0.16);
+    color: var(--wine);
+    font-size: 12px;
+    font-weight: 600;
+    transition: all .2s ease;
+    user-select: none;
+  }
+  .service-chip input:checked + span{
+    background: var(--wine);
+    color: var(--gold-soft);
+    border-color: var(--wine);
+    box-shadow: 0 4px 12px rgba(74, 19, 48, 0.25);
+  }
+  .star-rating-widget{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 6px;
+  }
+  .star-btn{
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: #ddd;
+    cursor: pointer;
+    padding: 0 2px;
+    transition: color .15s ease, transform .15s ease;
+    line-height: 1;
+  }
+  .star-btn:hover{
+    transform: scale(1.2);
+  }
+  .star-btn.active{
+    color: var(--gold);
+  }
+  .star-btn.hover{
+    color: #ffd700;
+  }
+  .rating-label{
+    font-size: 12px;
+    color: var(--wine);
+    font-weight: 600;
+    margin-left: 10px;
+  }
+  .form-row-2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .btn-submit-review{
+    background: linear-gradient(135deg, var(--wine) 0%, var(--wine-deep) 100%) !important;
+    color: var(--gold-soft) !important;
+    border: 1px solid var(--gold) !important;
+  }
+  .live-verified-pill{
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #2e7d32;
+    background: rgba(46, 125, 50, 0.1);
+    padding: 3px 8px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .pulse-green-dot{
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #2e7d32;
+    display: inline-block;
+  }
+  .new-just-posted{
+    animation: newReviewFlash 1.5s ease-out;
+    border-color: var(--gold) !important;
+    box-shadow: 0 12px 34px rgba(201, 161, 90, 0.3) !important;
+  }
+  @keyframes newReviewFlash{
+    0%{ transform: scale(0.96); opacity: 0; background: rgba(201, 161, 90, 0.15); }
+    100%{ transform: scale(1); opacity: 1; background: #ffffff; }
   }
 
   /* ---------- LOOKS ---------- */
@@ -1192,7 +1340,7 @@
     text-align: center;
     font-size: 13.5px;
     color: var(--wine);
-    margin-bottom: 14px;
+    margin-bottom: 22px;
     font-weight: 500;
     min-height: 20px;
   }
@@ -1234,6 +1382,100 @@
     object-fit: cover;
     display: block;
   }
+  /* Modal Client Reviews Column */
+  .modal-reviews-col{
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 18px;
+    background: rgba(74, 19, 48, 0.035);
+    border: 1px solid rgba(201, 161, 90, 0.22);
+    border-radius: 14px;
+    padding: 14px 16px;
+    box-sizing: border-box;
+  }
+  .modal-reviews-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(74, 19, 48, 0.08);
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .modal-reviews-title{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--wine);
+    font-family: 'Outfit', sans-serif;
+  }
+  .modal-reviews-stars{
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  .modal-reviews-badge{
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #2e7d32;
+    background: rgba(46, 125, 50, 0.1);
+    padding: 3px 9px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .modal-reviews-badge::before{
+    content: '✓';
+    font-weight: 900;
+  }
+  .modal-reviews-list{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .modal-review-item{
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 10px 12px;
+    border: 1px solid rgba(201, 161, 90, 0.16);
+    box-shadow: 0 2px 6px rgba(52, 4, 31, 0.03);
+    text-align: left;
+  }
+  .modal-review-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .modal-review-author{
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--wine-deep);
+  }
+  .modal-review-role{
+    font-size: 11px;
+    color: var(--ink-soft);
+  }
+  .modal-review-stars{
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+  .modal-review-text{
+    font-size: 12px;
+    color: var(--ink);
+    line-height: 1.5;
+    margin: 0;
+  }
+
   .saree-modal-footer{
     display: flex;
     gap: 12px;
@@ -1539,22 +1781,21 @@
     .service-footer{
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       gap: 8px;
-      flex-wrap: wrap;
       margin-top: 16px;
       padding-top: 12px;
-    }
-    .avail-tag{
-      font-size: 10px;
-      padding: 5px 11px;
-      margin-top: 0;
-      white-space: nowrap;
     }
     .btn-view-more{
       font-size: 11px;
       padding: 5px 12px;
       white-space: nowrap;
+    }
+
+
+    .form-row-2{
+      grid-template-columns: 1fr;
+      gap: 0;
     }
 
     /* Looks Grid */
@@ -1744,13 +1985,11 @@
     }
     .look-label .name{ font-size: 18px; }
     .service-footer{
-      flex-direction: column;
-      align-items: stretch;
-      gap: 8px;
-    }
-    .avail-tag, .btn-view-more{
+      display: flex;
       justify-content: center;
-      width: 100%;
+    }
+    .btn-view-more{
+      justify-content: center;
     }
   }
 </style>
@@ -1842,9 +2081,8 @@
           <h3>Saree Pre-pletting</h3>
           <p>Precisely pre-pleated drapes so your saree sits perfectly from the first moment to the last dance.</p>
           <div class="service-footer">
-            <div class="avail-tag"><span class="dot"></span>Service Available</div>
             <button type="button" class="btn-view-more" id="sareeViewMoreBtn" onclick="openSareeGallery()" aria-haspopup="dialog">
-              <span>View More</span>
+              <span>View Works</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </button>
           </div>
@@ -1859,9 +2097,8 @@
           <h3>Hairstyle</h3>
           <p>Elegant updos, braids and floral finishes styled to suit your outfit, jewelry and the occasion.</p>
           <div class="service-footer">
-            <div class="avail-tag"><span class="dot"></span>Service Available</div>
             <button type="button" class="btn-view-more" id="hairstyleViewMoreBtn" onclick="openHairstyleGallery()" aria-haspopup="dialog">
-              <span>View More</span>
+              <span>View Works</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </button>
           </div>
@@ -1876,9 +2113,8 @@
           <h3>Makeup</h3>
           <p>Skin-first, long-wearing makeup — from soft muhurtham glam to full bridal reception glow.</p>
           <div class="service-footer">
-            <div class="avail-tag"><span class="dot"></span>Service Available</div>
             <button type="button" class="btn-view-more" id="makeupViewMoreBtn" onclick="openMakeupGallery()" aria-haspopup="dialog">
-              <span>View More</span>
+              <span>View Works</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </button>
           </div>
@@ -2071,6 +2307,10 @@
   </div>
 </div>
 
+
+
+
+
 <!-- SAREE PRE-PLETTING GALLERY MODAL -->
 <div class="saree-modal-backdrop" id="sareeGalleryModal" role="dialog" aria-modal="true" aria-labelledby="sareeGalleryTitle">
   <div class="saree-modal-card">
@@ -2101,23 +2341,49 @@
       <strong>Lavender &amp; Gold Zari</strong> — Precision box-pleated silk drape
     </div>
 
-    <!-- 5 Photo Thumbnails -->
-    <div class="saree-thumbs" id="sareeThumbs">
-      <button type="button" class="thumb-btn active" data-index="0" aria-label="View Saree 1: Lavender and gold">
-        <img src="saree-pleat-1.jpg" alt="Lavender silk saree pleats" loading="lazy" width="66" height="66">
-      </button>
-      <button type="button" class="thumb-btn" data-index="1" aria-label="View Saree 2: Emerald green and crimson">
-        <img src="saree-pleat-2.jpg" alt="Emerald green saree pleats" loading="lazy" width="66" height="66">
-      </button>
-      <button type="button" class="thumb-btn" data-index="2" aria-label="View Saree 3: Royal maroon and teal">
-        <img src="saree-pleat-3.jpg" alt="Wine maroon saree pleats" loading="lazy" width="66" height="66">
-      </button>
-      <button type="button" class="thumb-btn" data-index="3" aria-label="View Saree 4: Turquoise blue and dark green">
-        <img src="saree-pleat-4.jpg" alt="Turquoise blue saree pleats" loading="lazy" width="66" height="66">
-      </button>
-      <button type="button" class="thumb-btn" data-index="4" aria-label="View Saree 5: Rani pink and peacock blue">
-        <img src="saree-pleat-5.jpg" alt="Rani pink saree pleats" loading="lazy" width="66" height="66">
-      </button>
+    <!-- REVIEWS COLUMN: Saree Pre-pletting -->
+    <div class="modal-reviews-col">
+      <div class="modal-reviews-head">
+        <div class="modal-reviews-title">
+          <span class="modal-reviews-stars">★★★★★</span>
+          <span>Bride Reviews &amp; Experiences</span>
+        </div>
+        <button type="button" class="btn-modal-write-review" onclick="openReviewModal('Saree Pre-Pletting')">
+          <span>✍️ Write Review</span>
+        </button>
+      </div>
+      <div class="modal-reviews-list">
+        <div class="modal-review-item">
+          <div class="modal-review-top">
+            <div>
+              <span class="modal-review-author">Priyanka R.</span>
+              <span class="modal-review-role"> · Muhurtham Bride, Chennai</span>
+            </div>
+            <span class="modal-review-stars">★★★★★</span>
+          </div>
+          <p class="modal-review-text">"The pre-pleating saved us so much time on my wedding morning! Within 8 minutes my heavy Kanchipuram silk was draped with razor-sharp box pleats that didn't budge through the entire muhurtham."</p>
+        </div>
+        <div class="modal-review-item">
+          <div class="modal-review-top">
+            <div>
+              <span class="modal-review-author">Deepika N.</span>
+              <span class="modal-review-role"> · Reception Bride</span>
+            </div>
+            <span class="modal-review-stars">★★★★★</span>
+          </div>
+          <p class="modal-review-text">"Delivered neatly in a zipper bag with clear fold lines and strong pins. Sitting, walking and stage rituals were completely hassle-free. Best decision for my silk saree!"</p>
+        </div>
+        <div class="modal-review-item">
+          <div class="modal-review-top">
+            <div>
+              <span class="modal-review-author">Shalini V.</span>
+              <span class="modal-review-role"> · Engagement &amp; Muhurtham</span>
+            </div>
+            <span class="modal-review-stars">★★★★★</span>
+          </div>
+          <p class="modal-review-text">"Both my heavy pattu sarees were pre-pleated with exquisite precision. The pleats fell so symmetrically in all our wedding photographs!"</p>
+        </div>
+      </div>
     </div>
 
     <div class="saree-modal-footer">
@@ -2132,6 +2398,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- HAIRSTYLE GALLERY MODAL -->
 <div class="saree-modal-backdrop" id="hairstyleGalleryModal" role="dialog" aria-modal="true" aria-labelledby="hairstyleGalleryTitle">
@@ -2163,23 +2430,49 @@
       <strong>Traditional Bridal Braid</strong> — Fresh jasmine &amp; red rose gajra with gold temple jada billalu
     </div>
 
-    <!-- 5 Photo Thumbnails -->
-    <div class="saree-thumbs" id="hairstyleThumbs">
-      <button type="button" class="thumb-btn active" data-index="0" aria-label="View Hairstyle 1: Traditional Bridal Braid">
-        <img src="hairstyle-1.jpg" alt="Bridal braid with jasmine flowers" loading="lazy" width="66" height="66">
-      </button>
-      <button type="button" class="thumb-btn" data-index="1" aria-label="View Hairstyle 2: Crystal Leaf Half-Up Curls">
-        <img src="hairstyle-2.jpg" alt="Half-up curls with leaf tiara" loading="lazy" width="66" height="66">
-      </button>
-      <button type="button" class="thumb-btn" data-index="2" aria-label="View Hairstyle 3: Textured Crown Twist Curls">
-        <img src="hairstyle-3.jpg" alt="Textured crown twist curls" loading="lazy" width="66" height="66">
-      </button>
-      <button type="button" class="thumb-btn" data-index="3" aria-label="View Hairstyle 4: Soft Bohemian Wave Curls">
-        <img src="hairstyle-4.jpg" alt="Bohemian twist curls" loading="lazy" width="66" height="66">
-      </button>
-      <button type="button" class="thumb-btn" data-index="4" aria-label="View Hairstyle 5: Crimson Lehenga Fishtail Braid">
-        <img src="hairstyle-5.jpg" alt="Bridal fishtail braid with floral veni" loading="lazy" width="66" height="66">
-      </button>
+    <!-- REVIEWS COLUMN: Bridal Hairstyling -->
+    <div class="modal-reviews-col">
+      <div class="modal-reviews-head">
+        <div class="modal-reviews-title">
+          <span class="modal-reviews-stars">★★★★★</span>
+          <span>Bride Reviews &amp; Experiences</span>
+        </div>
+        <button type="button" class="btn-modal-write-review" onclick="openReviewModal('Bridal Hairstyle')">
+          <span>✍️ Write Review</span>
+        </button>
+      </div>
+      <div class="modal-reviews-list">
+        <div class="modal-review-item">
+          <div class="modal-review-top">
+            <div>
+              <span class="modal-review-author">Keerthana Rajesh</span>
+              <span class="modal-review-role"> · Traditional Muhurtham</span>
+            </div>
+            <span class="modal-review-stars">★★★★★</span>
+          </div>
+          <p class="modal-review-text">"My bridal braid with fresh jasmine veni and temple jada was an absolute masterpiece! It felt completely weightless and held intact till the evening ceremony."</p>
+        </div>
+        <div class="modal-review-item">
+          <div class="modal-review-top">
+            <div>
+              <span class="modal-review-author">Swetha Murali</span>
+              <span class="modal-review-role"> · Reception Bride</span>
+            </div>
+            <span class="modal-review-stars">★★★★★</span>
+          </div>
+          <p class="modal-review-text">"I wanted soft romantic curls with a delicate crystal accessory, and Zaisa recreated the exact Pinterest vision I had! The curls stayed bouncy all night without frizz."</p>
+        </div>
+        <div class="modal-review-item">
+          <div class="modal-review-top">
+            <div>
+              <span class="modal-review-author">Ananya S.</span>
+              <span class="modal-review-role"> · Muhurtham Bride</span>
+            </div>
+            <span class="modal-review-stars">★★★★★</span>
+          </div>
+          <p class="modal-review-text">"The jasmine poola jada was arranged with unbelievable perfection. Not a single petal dropped throughout the 5-hour ceremony!"</p>
+        </div>
+      </div>
     </div>
 
     <div class="saree-modal-footer">
@@ -2225,17 +2518,49 @@
       <strong>Bridal Crimson &amp; Gold Dupatta</strong> — Radiant glowing skin, defined winged liner, rose gold maang tikka, and regal gold jewellery
     </div>
 
-    <!-- 3 Photo Thumbnails -->
-    <div class="saree-thumbs" id="makeupThumbs">
-      <button type="button" class="thumb-btn active" data-index="0" aria-label="View Makeup 1: Bridal Crimson &amp; Gold Dupatta">
-        <img src="makeup-1.jpg" alt="Bridal Crimson &amp; Gold Dupatta" loading="lazy" width="66" height="66">
-      </button>
-      <button type="button" class="thumb-btn" data-index="1" aria-label="View Makeup 2: Traditional Muhurtham Bridal Glam">
-        <img src="makeup-2.jpg" alt="Traditional Muhurtham Bridal Glam" loading="lazy" width="66" height="66">
-      </button>
-      <button type="button" class="thumb-btn" data-index="2" aria-label="View Makeup 3: Modern Reception Glamour">
-        <img src="makeup-3.jpg" alt="Modern Reception Glamour" loading="lazy" width="66" height="66">
-      </button>
+    <!-- REVIEWS COLUMN: Bridal Makeup -->
+    <div class="modal-reviews-col">
+      <div class="modal-reviews-head">
+        <div class="modal-reviews-title">
+          <span class="modal-reviews-stars">★★★★★</span>
+          <span>Bride Reviews &amp; Experiences</span>
+        </div>
+        <button type="button" class="btn-modal-write-review" onclick="openReviewModal('Bridal Makeup')">
+          <span>✍️ Write Review</span>
+        </button>
+      </div>
+      <div class="modal-reviews-list">
+        <div class="modal-review-item">
+          <div class="modal-review-top">
+            <div>
+              <span class="modal-review-author">Meera Krishnan</span>
+              <span class="modal-review-role"> · Wedding &amp; Reception</span>
+            </div>
+            <span class="modal-review-stars">★★★★★</span>
+          </div>
+          <p class="modal-review-text">"Flawless and lightweight! The makeup felt like second skin with no heavy cakey feeling, and it stayed fresh through the humid ceremony and stage flash photography."</p>
+        </div>
+        <div class="modal-review-item">
+          <div class="modal-review-top">
+            <div>
+              <span class="modal-review-author">Kavya Subramanian</span>
+              <span class="modal-review-role"> · Muhurtham Bride</span>
+            </div>
+            <span class="modal-review-stars">★★★★★</span>
+          </div>
+          <p class="modal-review-text">"Exact shade match for my dusky skin tone! She gave me an ethereal natural glow with subtle winged liner. Every single guest complimented how radiant I looked."</p>
+        </div>
+        <div class="modal-review-item">
+          <div class="modal-review-top">
+            <div>
+              <span class="modal-review-author">Nithya K.</span>
+              <span class="modal-review-role"> · Reception Bride</span>
+            </div>
+            <span class="modal-review-stars">★★★★★</span>
+          </div>
+          <p class="modal-review-text">"My skin looked radiant, glassy and completely natural. The eye makeup was so detailed and elegant. Felt like an absolute queen on my special day!"</p>
+        </div>
+      </div>
     </div>
 
     <div class="saree-modal-footer">
@@ -2248,6 +2573,80 @@
         <span>Call Now</span>
       </a>
     </div>
+  </div>
+</div>
+
+<!-- LIVE CLIENT REVIEW MODAL -->
+<div class="travel-modal-backdrop" id="reviewModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="reviewModalTitle">
+  <div class="travel-modal-card review-modal-card">
+    <button type="button" class="travel-modal-close" id="closeReviewModal" aria-label="Close review modal">&times;</button>
+    <div class="travel-modal-head">
+      <div class="travel-modal-icon review-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <h3 id="reviewModalTitle">Share Your Experience</h3>
+      <p>We'd love to hear about your look! Your review will be featured in our client showcase.</p>
+    </div>
+    <form id="reviewForm" onsubmit="handleReviewSubmit(event)">
+      <div class="form-group">
+        <label>Service Received</label>
+        <div class="service-chip-group">
+          <label class="service-chip">
+            <input type="radio" name="reviewService" value="Saree Pre-Pletting" checked>
+            <span>Saree Pre-Pletting</span>
+          </label>
+          <label class="service-chip">
+            <input type="radio" name="reviewService" value="Bridal Hairstyle">
+            <span>Bridal Hairstyle</span>
+          </label>
+          <label class="service-chip">
+            <input type="radio" name="reviewService" value="Bridal Makeup">
+            <span>Bridal Makeup</span>
+          </label>
+          <label class="service-chip">
+            <input type="radio" name="reviewService" value="Full Bridal Package">
+            <span>Full Bridal Package</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Your Rating</label>
+        <div class="star-rating-widget" id="starRatingWidget" role="radiogroup" aria-label="Rating from 1 to 5 stars">
+          <button type="button" class="star-btn active" data-rating="1" aria-label="1 star">★</button>
+          <button type="button" class="star-btn active" data-rating="2" aria-label="2 stars">★</button>
+          <button type="button" class="star-btn active" data-rating="3" aria-label="3 stars">★</button>
+          <button type="button" class="star-btn active" data-rating="4" aria-label="4 stars">★</button>
+          <button type="button" class="star-btn active" data-rating="5" aria-label="5 stars">★</button>
+          <span class="rating-label" id="ratingLabel">5 Stars — Excellent!</span>
+        </div>
+        <input type="hidden" id="reviewRating" name="rating" value="5">
+      </div>
+
+      <div class="form-row-2">
+        <div class="form-group">
+          <label for="reviewName">Your Name</label>
+          <input type="text" id="reviewName" name="name" placeholder="e.g. Deepika Sundaram" required>
+        </div>
+        <div class="form-group">
+          <label for="reviewOccasion">Ceremony / Occasion</label>
+          <input type="text" id="reviewOccasion" name="occasion" placeholder="e.g. Muhurtham Bride · Chennai" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="reviewText">Your Review</label>
+        <textarea id="reviewText" name="review" rows="3" placeholder="Tell other brides about your experience, how the styling felt, compliments received..." required></textarea>
+      </div>
+
+      <div class="travel-modal-actions">
+        <button type="button" class="btn-cancel" id="cancelReviewModal">Cancel</button>
+        <button type="submit" class="btn-send btn-submit-review">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Post Review ✨
+        </button>
+      </div>
+    </form>
   </div>
 </div>
 
@@ -2694,6 +3093,10 @@
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
+      if (reviewModal && reviewModal.classList.contains('active')) {
+        closeReviewModal();
+        return;
+      }
       if (travelModal && travelModal.classList.contains('active')) closeModal();
       if (sareeModal && sareeModal.classList.contains('active')) closeSareeGallery();
       if (hairstyleModal && hairstyleModal.classList.contains('active')) closeHairstyleGallery();
@@ -2727,7 +3130,250 @@
     travelForm.reset();
     closeModal();
   }
-</script>
+
+  // Live Review System
+  const reviewModal = document.getElementById('reviewModal');
+  const reviewForm = document.getElementById('reviewForm');
+  let selectedRating = 5;
+
+  const ratingTexts = {
+    1: '1 Star — Needs Improvement',
+    2: '2 Stars — Fair',
+    3: '3 Stars — Good Experience',
+    4: '4 Stars — Very Good',
+    5: '5 Stars — Excellent!'
+  };
+
+  function openReviewModal(defaultService) {
+    if (!reviewModal) return;
+    if (defaultService) {
+      const radio = document.querySelector(`input[name="reviewService"][value="${defaultService}"]`);
+      if (radio) radio.checked = true;
+    }
+    setStarRating(5);
+    reviewModal.classList.add('active');
+    reviewModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    const nameInput = document.getElementById('reviewName');
+    if (nameInput) setTimeout(() => nameInput.focus(), 150);
+  }
+
+  function closeReviewModal() {
+    if (!reviewModal) return;
+    reviewModal.classList.remove('active');
+    reviewModal.setAttribute('aria-hidden', 'true');
+    // Keep background scroll locked if a gallery modal is still open behind it
+    const anyGalleryOpen = document.querySelector('.saree-modal-backdrop.active');
+    if (!anyGalleryOpen) {
+      document.body.style.overflow = '';
+    }
+  }
+
+  const closeReviewBtn = document.getElementById('closeReviewModal');
+  const cancelReviewBtn = document.getElementById('cancelReviewModal');
+  if (closeReviewBtn) closeReviewBtn.addEventListener('click', closeReviewModal);
+  if (cancelReviewBtn) cancelReviewBtn.addEventListener('click', closeReviewModal);
+
+  if (reviewModal) {
+    reviewModal.addEventListener('click', (e) => {
+      if (e.target === reviewModal) closeReviewModal();
+    });
+  }
+
+  // Interactive Stars Widget
+  const starBtns = document.querySelectorAll('#starRatingWidget .star-btn');
+  const ratingLabel = document.getElementById('ratingLabel');
+  const reviewRatingInput = document.getElementById('reviewRating');
+
+  function setStarRating(rating) {
+    selectedRating = rating;
+    if (reviewRatingInput) reviewRatingInput.value = rating;
+    if (ratingLabel) ratingLabel.textContent = ratingTexts[rating] || (rating + ' Stars');
+    starBtns.forEach(btn => {
+      const r = parseInt(btn.getAttribute('data-rating'), 10);
+      btn.classList.toggle('active', r <= rating);
+    });
+  }
+
+  starBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const r = parseInt(btn.getAttribute('data-rating'), 10);
+      setStarRating(r);
+    });
+    btn.addEventListener('mouseenter', () => {
+      const r = parseInt(btn.getAttribute('data-rating'), 10);
+      starBtns.forEach(b => {
+        const br = parseInt(b.getAttribute('data-rating'), 10);
+        b.classList.toggle('hover', br <= r);
+      });
+    });
+    btn.addEventListener('mouseleave', () => {
+      starBtns.forEach(b => b.classList.remove('hover'));
+    });
+  });
+
+    // Central reviews.json integration - Allows every user to view everyone's reviews
+  async function loadAllReviews() {
+    try {
+      const res = await fetch('reviews.json?v=' + Date.now());
+      if (res.ok) {
+        const reviews = await res.json();
+        if (Array.isArray(reviews) && reviews.length > 0) {
+          const sareeList = document.querySelector('#sareeGalleryModal .modal-reviews-list');
+          const hairList = document.querySelector('#hairstyleGalleryModal .modal-reviews-list');
+          const makeupList = document.querySelector('#makeupGalleryModal .modal-reviews-list');
+          if (sareeList) sareeList.innerHTML = '';
+          if (hairList) hairList.innerHTML = '';
+          if (makeupList) makeupList.innerHTML = '';
+
+          // Render all reviews from reviews.json in order
+          reviews.forEach(rev => renderReviewCard(rev, false, false));
+          return;
+        }
+      }
+    } catch (err) {
+      console.log('Using default reviews markup fallback', err);
+    }
+    // Fallback: load any reviews saved in localStorage
+    loadLocalFallbackReviews();
+  }
+
+  function renderReviewCard(rev, isNew = false, prepend = false) {
+    let targetModalId = 'makeupGalleryModal';
+    let modalKey = 'makeup';
+    const s = (rev.service || '').toLowerCase();
+    if (s.includes('saree') || s.includes('plet') || s.includes('pleat')) {
+      targetModalId = 'sareeGalleryModal';
+      modalKey = 'saree';
+    } else if (s.includes('hair')) {
+      targetModalId = 'hairstyleGalleryModal';
+      modalKey = 'hairstyle';
+    } else {
+      targetModalId = 'makeupGalleryModal';
+      modalKey = 'makeup';
+    }
+
+    const modalEl = document.getElementById(targetModalId);
+    if (!modalEl) return modalKey;
+
+    const listEl = modalEl.querySelector('.modal-reviews-list');
+    if (!listEl) return modalKey;
+
+    const starsStr = '★'.repeat(rev.stars || 5) + '☆'.repeat(5 - (rev.stars || 5));
+
+    const item = document.createElement('div');
+    item.className = 'modal-review-item' + (isNew ? ' new-just-posted' : '');
+    item.innerHTML = `
+      <div class="modal-review-top">
+        <div>
+          <span class="modal-review-author">${escapeHtml(rev.name)}</span>
+          <span class="modal-review-role"> · ${escapeHtml(rev.occasion || 'Client Review')}</span>
+        </div>
+        <span class="modal-review-stars">${starsStr}</span>
+      </div>
+      <p class="modal-review-text">"${escapeHtml(rev.text)}"</p>
+    `;
+
+    if (prepend) {
+      listEl.prepend(item);
+    } else {
+      listEl.appendChild(item);
+    }
+    return modalKey;
+  }
+
+  // Handle Review Submission - Saves to reviews.json on server and localStorage
+  async function handleReviewSubmit(e) {
+    e.preventDefault();
+    const service = document.querySelector('input[name="reviewService"]:checked')?.value || 'Bridal Makeup';
+    const name = document.getElementById('reviewName').value.trim();
+    const occasion = document.getElementById('reviewOccasion').value.trim();
+    const text = document.getElementById('reviewText').value.trim();
+    const stars = parseInt(reviewRatingInput.value, 10) || 5;
+
+    if (!name || !text) return;
+
+    const newReview = {
+      id: 'rev_' + Date.now(),
+      service,
+      name,
+      occasion,
+      text,
+      stars,
+      date: new Date().toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' })
+    };
+
+    // 1. Immediately render into the specific modal in front of user
+    const targetModalKey = renderReviewCard(newReview, true, true);
+
+    // 2. Persist to server's reviews.json so ALL other users see it
+    try {
+      fetch('/api/reviews', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newReview)
+      }).then(res => res.json()).then(data => {
+        console.log('Successfully saved to reviews.json:', data);
+      }).catch(err => {
+        console.warn('API /api/reviews offline, review saved locally:', err);
+      });
+    } catch (e) {}
+
+    // 3. Save to localStorage as offline fallback
+    try {
+      const existing = JSON.parse(localStorage.getItem('zaisa_client_reviews') || '[]');
+      existing.unshift(newReview);
+      localStorage.setItem('zaisa_client_reviews', JSON.stringify(existing));
+    } catch (err) {}
+
+    // 4. Show celebration toast & reset modal
+    showReviewSuccessToast(name, service);
+    reviewForm.reset();
+    closeReviewModal();
+
+    // 5. Open the specific section modal so bride sees her review right away
+    setTimeout(() => {
+      if (targetModalKey === 'saree') openSareeGallery();
+      else if (targetModalKey === 'hairstyle') openHairstyleGallery();
+      else openMakeupGallery();
+    }, 350);
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function loadLocalFallbackReviews() {
+    try {
+      const existing = JSON.parse(localStorage.getItem('zaisa_client_reviews') || '[]');
+      existing.slice().reverse().forEach(rev => renderReviewCard(rev, false, true));
+    } catch (e) {}
+  }
+
+  // Fetch reviews.json when page loads
+  loadAllReviews();
+
+  function showReviewSuccessToast(name, serviceName) {
+    let toast = document.getElementById('reviewSuccessToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'reviewSuccessToast';
+      toast.className = 'toast-popup';
+      toast.setAttribute('role', 'alert');
+      document.body.appendChild(toast);
+    }
+    toast.innerHTML = `
+      <span class="toast-sparkle" style="color:var(--gold);">✦</span>
+      <div class="toast-msg">
+        <strong>Thank you, ${escapeHtml(name)}!</strong>
+        <span>Your review has been added to the ${escapeHtml(serviceName || 'showcase')} section! ✨</span>
+      </div>
+    `;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 4500);
+  }</script>
 
 <!-- FLOATING WHATSAPP CHAT BUTTON -->
 <a href="https://wa.me/919003357370?text=Hello%20Zaisa%20Makeover!%20I%20would%20like%20to%20enquire%20about%20your%20bridal%20services." target="_blank" rel="noopener noreferrer" class="floating-wa" aria-label="Chat with Zaisa Makeover on WhatsApp">
