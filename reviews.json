@@ -1,0 +1,101 @@
+[
+  {
+    "id": "rev_1788722187159",
+    "service": "Bridal Hairstyle",
+    "name": "subha",
+    "occasion": "reception/aruppukottai",
+    "text": "i love your works",
+    "stars": 5,
+    "date": "7 Sept 2026"
+  },
+  {
+    "id": "rev_subha_1",
+    "service": "Bridal Makeup",
+    "name": "subha",
+    "occasion": "reception/aruppukottai",
+    "text": "one of the best makeup i have ever got for my occasions",
+    "stars": 5,
+    "date": "6 Sept 2026"
+  },
+  {
+    "id": "rev_makeup_1",
+    "service": "Bridal Makeup",
+    "name": "Meera Krishnan",
+    "occasion": "Wedding & Reception",
+    "text": "Flawless and lightweight! The makeup felt like second skin with no heavy cakey feeling, and it stayed fresh through the humid ceremony and stage flash photography.",
+    "stars": 5,
+    "date": "4 Sept 2026"
+  },
+  {
+    "id": "rev_makeup_2",
+    "service": "Bridal Makeup",
+    "name": "Kavya Subramanian",
+    "occasion": "Muhurtham Bride",
+    "text": "Exact shade match for my dusky skin tone! She gave me an ethereal natural glow with subtle winged liner. Every single guest complimented how radiant I looked.",
+    "stars": 5,
+    "date": "29 Aug 2026"
+  },
+  {
+    "id": "rev_makeup_3",
+    "service": "Bridal Makeup",
+    "name": "Nithya K.",
+    "occasion": "Reception Bride",
+    "text": "My skin looked radiant, glassy and completely natural. The eye makeup was so detailed and elegant. Felt like an absolute queen on my special day!",
+    "stars": 5,
+    "date": "20 Aug 2026"
+  },
+  {
+    "id": "rev_saree_1",
+    "service": "Saree Pre-Pletting",
+    "name": "Priyanka R.",
+    "occasion": "Muhurtham Bride, Chennai",
+    "text": "The pre-pleating saved us so much time on my wedding morning! Within 8 minutes my heavy Kanchipuram silk was draped with razor-sharp box pleats that didn't budge through the entire muhurtham.",
+    "stars": 5,
+    "date": "1 Sept 2026"
+  },
+  {
+    "id": "rev_saree_2",
+    "service": "Saree Pre-Pletting",
+    "name": "Deepika N.",
+    "occasion": "Reception Bride",
+    "text": "Delivered neatly in a zipper bag with clear fold lines and strong pins. Sitting, walking and stage rituals were completely hassle-free. Best decision for my silk saree!",
+    "stars": 5,
+    "date": "26 Aug 2026"
+  },
+  {
+    "id": "rev_saree_3",
+    "service": "Saree Pre-Pletting",
+    "name": "Shalini V.",
+    "occasion": "Engagement & Muhurtham",
+    "text": "Both my heavy pattu sarees were pre-pleated with exquisite precision. The pleats fell so symmetrically in all our wedding photographs!",
+    "stars": 5,
+    "date": "15 Aug 2026"
+  },
+  {
+    "id": "rev_hair_1",
+    "service": "Bridal Hairstyle",
+    "name": "Keerthana Rajesh",
+    "occasion": "Traditional Muhurtham",
+    "text": "My bridal braid with fresh jasmine veni and temple jada was an absolute masterpiece! It felt completely weightless and held intact till the evening ceremony.",
+    "stars": 5,
+    "date": "2 Sept 2026"
+  },
+  {
+    "id": "rev_hair_2",
+    "service": "Bridal Hairstyle",
+    "name": "Swetha Murali",
+    "occasion": "Reception Bride",
+    "text": "I wanted soft romantic curls with a delicate crystal accessory, and Zaisa recreated the exact Pinterest vision I had! The curls stayed bouncy all night without frizz.",
+    "stars": 5,
+    "date": "28 Aug 2026"
+  },
+  {
+    "id": "rev_hair_3",
+    "service": "Bridal Hairstyle",
+    "name": "Ananya S.",
+    "occasion": "Muhurtham Bride",
+    "text": "The jasmine poola jada was arranged with unbelievable perfection. Not a single petal dropped throughout the 5-hour ceremony!",
+    "stars": 5,
+    "date": "19 Aug 2026"
+  }
+]
